@@ -1,74 +1,44 @@
-// Get Full Year
-const currentDate = new Date().getFullYear();
-document.getElementById('current-year').innerText = currentDate;
+// ─── Navbar scroll state ─────────────────────────────────
+const nav = document.getElementById('nav');
 
-// Get the modal
-const modal = document.getElementById('myModal');
-
-// Get the image and insert it inside the modal
-const images = document.querySelectorAll('.image-container img');
-const modalImg = document.getElementById('modalImg');
-const captionText = document.getElementById('caption');
-
-images.forEach(function (image) {
-  image.addEventListener('click', function () {
-    modal.style.display = 'block';
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-    document.body.style.overflow = 'hidden';
-  });
-});
-
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName('close')[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
+const handleScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
 };
 
-// Navbar
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll(); // run once in case page loads mid-scroll
+
+// ─── Mobile menu toggle ──────────────────────────────────
 const hamburger = document.getElementById('hamburger');
-const close = document.getElementById('hamburger-close');
-const nav = document.querySelector('.nav');
-const navbar = document.querySelector('.navbar');
+const mobileMenu = document.getElementById('mobileMenu');
 
-hamburger.addEventListener('click', () => {
-  nav.classList.add('active');
-  hamburger.style.display = 'none';
-  navbar.classList.add('sticky');
-  close.style.display = 'block';
+const toggleMobileMenu = (open) => {
+  const isOpen = open ?? !hamburger.classList.contains('active');
+  hamburger.classList.toggle('active', isOpen);
+  mobileMenu.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+};
+
+hamburger.addEventListener('click', () => toggleMobileMenu());
+
+// Close mobile menu when any link is tapped
+mobileMenu.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => toggleMobileMenu(false));
 });
 
-close.addEventListener('click', () => {
-  hamburger.style.display = 'block';
-  nav.classList.remove('active');
-  navbar.classList.remove('sticky');
-  close.style.display = 'none';
-});
-
-// Change navbar background color on scroll
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('sticky');
-  } else {
-    navbar.classList.remove('sticky');
+// Close on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+    toggleMobileMenu(false);
   }
 });
 
-// Hide hamburger button when screen width is above 780px
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 780) {
-    hamburger.style.display = 'none';
-    close.style.display = 'none';
-  } else {
-    hamburger.style.display = 'block';
-  }
-
-  // Remove 'active' class from navbar if it's at the top of the page
-  if (window.scrollY === 0) {
-    nav.classList.remove('sticky');
-    nav.classList.remove('active');
+// Close when viewport crosses above the mobile breakpoint
+const desktopQuery = window.matchMedia('(min-width: 769px)');
+desktopQuery.addEventListener('change', (e) => {
+  if (e.matches && mobileMenu.classList.contains('active')) {
+    toggleMobileMenu(false);
   }
 });
