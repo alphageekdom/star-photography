@@ -19,6 +19,19 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Preload hero LCP image -->
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="
+        https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_640/v1776879726/star-photography/hero-couple-beach-sunset.jpg 640w,
+        https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1024/v1776879726/star-photography/hero-couple-beach-sunset.jpg 1024w,
+        https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1600/v1776879726/star-photography/hero-couple-beach-sunset.jpg 1600w,
+        https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_2400/v1776879726/star-photography/hero-couple-beach-sunset.jpg 2400w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
   </head>
 
   <body>
@@ -55,32 +68,51 @@
     </div>
 
     <!-- Hero -->
-    <header>
-      <div class="header-container">
-        <div class="header-left">
-          <div class="overlay"></div>
-          <img
-            src="https://images.unsplash.com/photo-1656535041438-7921f3e521b3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXRzJTIwd29tYW58ZW58MHx8MHx8fDA%3D"
-            alt="Portrait Photo Shoot"
-          />
-          <div class="left-content">
-            <h1>Portraits</h1>
-            <h1 class="hide">Book Now</h1>
-            <a href="#" class="ghost-button">Book</a>
-          </div>
-        </div>
-        <div class="header-right">
-          <img
-            src="https://images.unsplash.com/photo-1519307212971-dd9561667ffb?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Wedding Photo Shoot"
-          />
-          <div class="right-content">
-            <h1>Weddings</h1>
-            <a href="#" class="ghost-button right">Book</a>
-          </div>
+    <section class="hero">
+      <img
+        class="hero-bg-img"
+        src="https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1920/v1776879726/star-photography/hero-couple-beach-sunset.jpg"
+        srcset="
+          https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_640/v1776879726/star-photography/hero-couple-beach-sunset.jpg 640w,
+          https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1024/v1776879726/star-photography/hero-couple-beach-sunset.jpg 1024w,
+          https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1600/v1776879726/star-photography/hero-couple-beach-sunset.jpg 1600w,
+          https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_2400/v1776879726/star-photography/hero-couple-beach-sunset.jpg 2400w"
+        sizes="100vw"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">
+          Orange County &mdash; Portrait &amp; Wedding Photographer
+        </p>
+
+        <h1 class="hero-title">
+          Capturing moments that feel like <em>forever</em>
+        </h1>
+
+        <p class="hero-desc">
+          Authentic, warm, and timeless photography rooted in love and heritage.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#services" class="btn btn-filled">View Services</a>
+          <a href="#contact" class="btn">Get in Touch</a>
         </div>
       </div>
-    </header>
+
+      <a
+        href="#about"
+        class="scroll-indicator"
+        aria-label="Scroll to About section"
+      >
+        <span>Scroll</span>
+        <span class="scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
 
     <!-- About -->
     <section id="about">
