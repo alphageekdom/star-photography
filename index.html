@@ -1,321 +1,453 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
+  <head>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="This is a Star Photography portfolio page.">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="style.css">
-        <title>Star Photography, LLC</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+        name="description"
+        content="Star Photography — Orange County Latina wedding & portrait photographer capturing authentic moments with warmth and artistry."
+      />
+      <title>Star Photography, LLC — Portraits & Weddings</title>
+
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600&display=swap"
+        rel="stylesheet"
+      />
+
+      <!-- Styles -->
+      <link rel="stylesheet" href="css/styles.css" />
     </head>
+  </head>
 
-    <body>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <img src="./images/star-photography.svg" alt="Logo" width="50" height="50" loading="lazy" />
-                </div>
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <div class="hamburger" id="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <div class="hamburger-close" id="hamburger-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <img
+            src="./images/star-photography.svg"
+            alt="Logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+        </div>
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </nav>
 
-        <!-- Hero -->
-        <header>
-            <div class="header-container">
-                <div class="header-left">
-                    <div class="overlay"></div>
-                    <img src="https://images.unsplash.com/photo-1656535041438-7921f3e521b3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXRzJTIwd29tYW58ZW58MHx8MHx8fDA%3D"
-                        alt="Portrait Photo Shoot" />
-                    <div class="left-content">
-                        <h1>Portraits</h1>
-                        <h1 class="hide">Book Now</h1>
-                        <a href="#" class="ghost-button">Book</a>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <img src="https://images.unsplash.com/photo-1519307212971-dd9561667ffb?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Wedding Photo Shoot" />
-                    <div class="right-content">
-                        <h1>Weddings</h1>
-                        <a href="#" class="ghost-button right">Book</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <div class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="hamburger-close" id="hamburger-close">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+    </nav>
 
-        <!-- About -->
-        <section id="about">
-            <div class="container">
-                <div class="left-column">
-                    <img src="https://images.unsplash.com/photo-1559405201-8f58c61e7dde?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Portrait of myself, Star" width="400" height="600" loading="lazy">
-                </div>
-                <div class="right-column">
-                    <h1>Hi, I'm <span class="highlight">Star</span></h1>
-                    <p>As a passionate Latina photographer, I am dedicated to capturing the beauty and emotion of every
-                        portrait and wedding I shoot. With a keen eye for detail and a genuine <span
-                            class="underline">love</span> for the art of
-                        photography, I strive to create images that resonate with authenticity and warmth. My clients
-                        often praise my ability to make them feel comfortable in front of the camera, resulting in
-                        natural and genuine photographs that truly reflect their personalities and relationships.</p>
-                    <p>My journey into photography began with a childhood fascination for capturing fleeting moments,
-                        which has since evolved into a lifelong pursuit of visual storytelling. With each click of my
-                        camera, I aim to create images that not only document but also evoke emotion and connection.
-                        Whether I'm photographing the tender moments of a wedding day or the joyous smiles of a family
-                        during a portrait session, I pour my heart and soul into every shot, aiming to create timeless
-                        works of art that celebrate the beauty of life and love.</p>
-                    <div class="image-container">
-                        <img src="/images/kiss.png" alt="Red Lipstick Kiss" width="200" height="100" loading="lazy" />
-                        <p>XOXO</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Hero -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <div class="overlay"></div>
+          <img
+            src="https://images.unsplash.com/photo-1656535041438-7921f3e521b3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXRzJTIwd29tYW58ZW58MHx8MHx8fDA%3D"
+            alt="Portrait Photo Shoot"
+          />
+          <div class="left-content">
+            <h1>Portraits</h1>
+            <h1 class="hide">Book Now</h1>
+            <a href="#" class="ghost-button">Book</a>
+          </div>
+        </div>
+        <div class="header-right">
+          <img
+            src="https://images.unsplash.com/photo-1519307212971-dd9561667ffb?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Wedding Photo Shoot"
+          />
+          <div class="right-content">
+            <h1>Weddings</h1>
+            <a href="#" class="ghost-button right">Book</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-        <!-- Portfolio -->
-        <section id="portfolio">
-            <h1>My <span class="highlight">Work</span></h1>
-            <div class="container grid-container">
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1517530094915-500495b15ade?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9zaG9vdCUyMHBvcnRyYWl0c3xlbnwwfHwwfHx8MA%3D%3D"
-                        alt="Metropolitan Portraits (San Francisco, CA)" width="300" height="300" loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="left-column">
+          <img
+            src="https://images.unsplash.com/photo-1559405201-8f58c61e7dde?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Portrait of myself, Star"
+            width="400"
+            height="600"
+            loading="lazy"
+          />
+        </div>
+        <div class="right-column">
+          <h1>Hi, I'm <span class="highlight">Star</span></h1>
+          <p>
+            As a passionate Latina photographer, I am dedicated to capturing the
+            beauty and emotion of every portrait and wedding I shoot. With a
+            keen eye for detail and a genuine
+            <span class="underline">love</span> for the art of photography, I
+            strive to create images that resonate with authenticity and warmth.
+            My clients often praise my ability to make them feel comfortable in
+            front of the camera, resulting in natural and genuine photographs
+            that truly reflect their personalities and relationships.
+          </p>
+          <p>
+            My journey into photography began with a childhood fascination for
+            capturing fleeting moments, which has since evolved into a lifelong
+            pursuit of visual storytelling. With each click of my camera, I aim
+            to create images that not only document but also evoke emotion and
+            connection. Whether I'm photographing the tender moments of a
+            wedding day or the joyous smiles of a family during a portrait
+            session, I pour my heart and soul into every shot, aiming to create
+            timeless works of art that celebrate the beauty of life and love.
+          </p>
+          <div class="image-container">
+            <img
+              src="/images/kiss.png"
+              alt="Red Lipstick Kiss"
+              width="200"
+              height="100"
+              loading="lazy"
+            />
+            <p>XOXO</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <h1>My <span class="highlight">Work</span></h1>
+      <div class="container grid-container">
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1517530094915-500495b15ade?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9zaG9vdCUyMHBvcnRyYWl0c3xlbnwwfHwwfHx8MA%3D%3D"
+            alt="Metropolitan Portraits (San Francisco, CA)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="
                         https://images.unsplash.com/photo-1585185590319-d68abacc7848?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBob3Rvc2hvb3QlMjBwb3J0cmFpdHN8ZW58MHx8MHx8fDA%3D"
-                        alt="Modeling Portraits (Las Vegas, NV)" width="300" height="300" loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1516536900061-d881b27e8ff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBob3Rvc2hvb3QlMjB3ZWRkaW5nfGVufDB8MHwwfHx8MA%3D%3D"
-                        alt="Wedding Day (Oceanside, CA)" width="300" height="300" loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG9zaG9vdCUyMHdlZGRpbmd8ZW58MHwwfDB8fHww"
-                        alt="Wedding Beach Captures (San Diego, CA)" width="300" height="300" loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1607956069751-43190324e134?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG9zaG9vdCUyMHBvcnRyYWl0c3xlbnwwfHwwfHx8MA%3D%3D"
-                        alt="In-Home Portraits (2022)" width="300" height="300" loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1611024847487-e26177381a3f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Family Portraits (Santa Monica, CA)" width="300" height="300" loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1519741414274-5b1ee71137fa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHBob3Rvc2hvb3QlMjB3ZWRkaW5nfGVufDB8fDB8fHww"
-                        alt="Outdoor Wedding Portraits (Redwood National Park, CA)" width="300" height="300"
-                        loading="lazy" />
-                </div>
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1512060847456-85a2a1bf8b25?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBob3Rvc2hvb3QlMjB3ZWRkaW5nfGVufDB8fDB8fHww"
-                        alt="Destination Weddings (Maui, Hawaii)" width="300" height="300" loading="lazy" />
-                </div>
-            </div>
-        </section>
+            alt="Modeling Portraits (Las Vegas, NV)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1516536900061-d881b27e8ff8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBob3Rvc2hvb3QlMjB3ZWRkaW5nfGVufDB8MHwwfHx8MA%3D%3D"
+            alt="Wedding Day (Oceanside, CA)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG9zaG9vdCUyMHdlZGRpbmd8ZW58MHwwfDB8fHww"
+            alt="Wedding Beach Captures (San Diego, CA)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1607956069751-43190324e134?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhvdG9zaG9vdCUyMHBvcnRyYWl0c3xlbnwwfHwwfHx8MA%3D%3D"
+            alt="In-Home Portraits (2022)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1611024847487-e26177381a3f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Family Portraits (Santa Monica, CA)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1519741414274-5b1ee71137fa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHBob3Rvc2hvb3QlMjB3ZWRkaW5nfGVufDB8fDB8fHww"
+            alt="Outdoor Wedding Portraits (Redwood National Park, CA)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+        <div class="image-container">
+          <img
+            src="https://images.unsplash.com/photo-1512060847456-85a2a1bf8b25?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBob3Rvc2hvb3QlMjB3ZWRkaW5nfGVufDB8fDB8fHww"
+            alt="Destination Weddings (Maui, Hawaii)"
+            width="300"
+            height="300"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
 
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="modalImg">
-            <div id="caption" class="caption"></div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="modalImg" />
+      <div id="caption" class="caption"></div>
+    </div>
+
+    <!-- Services -->
+    <section id="services">
+      <h1>Services <span class="highlight">Offered</span></h1>
+      <div class="container">
+        <div class="card gold">
+          <img
+            src="https://images.unsplash.com/photo-1522851276084-c6f32bde1f4d?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Photoshoot Image"
+          />
+          <div class="card-body">
+            <h2>Portrait Photoshoot</h2>
+            <div class="card-content">
+              <p>Price: $250/hr</p>
+              <button class="ghost-button">Book Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="card pink">
+          <img
+            src="https://images.unsplash.com/photo-1525772764200-be829a350797?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Photoshoot Image"
+          />
+          <div class="card-body">
+            <h2>Wedding Photoshoot</h2>
+            <div class="card-content">
+              <p>Price: $1000/hr</p>
+              <button class="ghost-button">Book Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="card silver">
+          <img
+            src="https://images.unsplash.com/photo-1614778265188-dff1832ae5a2?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Photoshoot Image"
+          />
+          <div class="card-body">
+            <h2>Destination Photoshoot</h2>
+            <div class="card-content">
+              <p>Price: $550/hr</p>
+              <button class="ghost-button">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <h1>Client <span class="highlight">Reviews</span></h1>
+      <div class="container">
+        <div class="review card">
+          <img
+            src="https://images.unsplash.com/photo-1654175670346-6f554cd9426a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpZGUlMjBwb3J0cmFpdHxlbnwwfHwwfHx8Mg%3D%3D"
+            alt=""
+            class="image"
+          />
+          <div class="text"></div>
+          <div class="main-text">
+            <p>
+              "Amazing experience! The photographer captured every special
+              moment beautifully. Highly recommend!"
+              <br />
+              - Candice Hill
+            </p>
+          </div>
         </div>
 
+        <div class="review card">
+          <img
+            src="https://images.unsplash.com/photo-1645389411992-e9ec49b158e6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y291cGxlfGVufDB8fDB8fHwy"
+            alt=""
+            class="image"
+          />
+          <div class="text"></div>
+          <div class="main-text">
+            <p>
+              "Excellent service! The photographer was punctual and
+              accommodating. We love the photos and cherish the memories
+              captured."
+              <br />
+              - Jim Johnson
+            </p>
+          </div>
+        </div>
+        <div class="review card">
+          <img
+            src="https://images.unsplash.com/photo-1543342384-1f1350e27861?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGxhdGlubyUyMGZhbWlseSUyMHBvcnRyYWl0fGVufDB8MXwwfHx8Mg%3D%3D"
+            alt=""
+            class="image"
+          />
+          <div class="text"></div>
+          <div class="main-text">
+            <p>
+              "The photographer was very professional and made me feel
+              comfortable throughout the session. The photos turned out
+              stunning!"
+              <br />
+              — Rosa Castillo
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Services -->
-        <section id="services">
-            <h1>Services <span class="highlight">Offered</span></h1>
-            <div class="container">
-                <div class="card gold">
-                    <img src="https://images.unsplash.com/photo-1522851276084-c6f32bde1f4d?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Photoshoot Image" />
-                    <div class="card-body">
-                        <h2>Portrait Photoshoot</h2>
-                        <div class="card-content">
-                            <p>Price: $250/hr</p>
-                            <button class="ghost-button">Book Now</button>
-                        </div>
-                    </div>
+    <!-- Contact -->
+    <section id="contact">
+      <h1>Contact <span class="highlight">Me</span></h1>
+      <div class="container">
+        <div class="contact-cards">
+          <div class="contact-card">
+            <i class="fa-solid fa-location-dot contact-icon highlight"></i>
+            <h2 class="contact-title">Location</h2>
+            <p>1234 Sycamore Street Orange, CA 92865</p>
+          </div>
+          <div class="contact-card">
+            <i class="fa-solid fa-phone contact-icon highlight"></i>
+            <h2 class="contact-title">Phone</h2>
+            <p>(714) 555-5555</p>
+          </div>
+          <div class="contact-card">
+            <i class="fa-regular fa-envelope contact-icon highlight"></i>
+            <h2 class="contact-title">Email</h2>
+            <p>info@starphotosllc.com</p>
+          </div>
+          <div class="contact-card">
+            <i class="fa-brands fa-instagram contact-icon highlight"></i>
+            <h2 class="contact-title">Socials</h2>
+            <p>@star.photography88</p>
+          </div>
+        </div>
+        <div class="contact-columns">
+          <div class="left-column">
+            <h2>Get In Touch</h2>
+            <p>
+              Capturing Moments, Celebrating Heritage: Your Latina Lens to
+              Timeless Memories!
+            </p>
+          </div>
+          <div class="right-column">
+            <div class="contact-form">
+              <form action="#" method="post">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="fullname"
+                    placeholder="Full Name"
+                    required
+                  />
+                  <i class="fas fa-user"></i>
                 </div>
-                <div class="card pink">
-                    <img src="https://images.unsplash.com/photo-1525772764200-be829a350797?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Photoshoot Image" />
-                    <div class="card-body">
-                        <h2>Wedding Photoshoot</h2>
-                        <div class="card-content">
-                            <p>Price: $1000/hr</p>
-                            <button class="ghost-button">Book Now</button>
-                        </div>
-                    </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                  />
+                  <i class="fas fa-envelope"></i>
                 </div>
-                <div class="card silver">
-                    <img src="https://images.unsplash.com/photo-1614778265188-dff1832ae5a2?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Photoshoot Image" />
-                    <div class="card-body">
-                        <h2>Destination Photoshoot</h2>
-                        <div class="card-content">
-                            <p>Price: $550/hr</p>
-                            <button class="ghost-button">Book Now</button>
-                        </div>
-                    </div>
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                  <i class="fas fa-comment"></i>
                 </div>
+                <button type="submit">Send Message</button>
+              </form>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Reviews -->
-        <section id="reviews">
-            <h1>Client <span class="highlight">Reviews</span></h1>
-            <div class="container">
-                <div class="review card">
-                    <img src="https://images.unsplash.com/photo-1654175670346-6f554cd9426a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpZGUlMjBwb3J0cmFpdHxlbnwwfHwwfHx8Mg%3D%3D"
-                        alt="" class="image">
-                    <div class="text"></div>
-                    <div class="main-text">
-                        <p>"Amazing experience! The photographer captured every special moment beautifully. Highly
-                            recommend!"
-                            <br>
-                            - Candice Hill
-                        </p>
-                    </div>
-                </div>
+    <footer>
+      <div class="container">
+        <div class="footer-columns">
+          <!-- Social Media Links Column -->
+          <div class="footer-column">
+            <h1>Socials</h1>
+            <ul class="footer-socials">
+              <li>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" aria-label="Pinterest"
+                  ><i class="fa-brands fa-pinterest-p"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fa-brands fa-x-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" aria-label="TikTok"
+                  ><i class="fa-brands fa-tiktok"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
 
-                <div class="review card">
-                    <img src="https://images.unsplash.com/photo-1645389411992-e9ec49b158e6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y291cGxlfGVufDB8fDB8fHwy"
-                        alt="" class="image">
-                    <div class="text"></div>
-                    <div class="main-text">
-                        <p>"Excellent service! The photographer was punctual and accommodating. We love the photos and
-                            cherish the memories captured."
-                            <br>
-                            - Jim Johnson
-                        </p>
-                    </div>
-                </div>
-                <div class="review card">
-                    <img src="https://images.unsplash.com/photo-1543342384-1f1350e27861?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGxhdGlubyUyMGZhbWlseSUyMHBvcnRyYWl0fGVufDB8MXwwfHx8Mg%3D%3D"
-                        alt="" class="image">
-                    <div class="text"></div>
-                    <div class="main-text">
-                        <p>"The photographer was very professional and made me feel comfortable
-                            throughout the session.
-                            The
-                            photos turned out stunning!"
-                            <br>
-                            — Rosa Castillo
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <!-- Navigation Links Column -->
+          <div class="footer-column">
+            <h1>Links</h1>
+            <ul class="footer-links">
+              <li><a href="#" aria-label="Home">Home</a></li>
+              <li><a href="#" aria-label="About">About</a></li>
+              <li><a href="#" aria-label="Services">Services</a></li>
+              <li><a href="#" aria-label="Contact">Contact</a></li>
+            </ul>
+          </div>
 
-        <!-- Contact -->
-        <section id="contact">
-            <h1>Contact <span class="highlight">Me</span></h1>
-            <div class="container">
-                <div class="contact-cards">
-                    <div class="contact-card">
-                        <i class="fa-solid fa-location-dot contact-icon highlight"></i>
-                        <h2 class="contact-title">Location</h2>
-                        <p>1234 Sycamore Street
-                            Orange, CA 92865</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fa-solid fa-phone contact-icon highlight"></i>
-                        <h2 class="contact-title">Phone</h2>
-                        <p>(714) 555-5555</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fa-regular fa-envelope contact-icon highlight"></i>
-                        <h2 class="contact-title">Email</h2>
-                        <p>info@starphotosllc.com</p>
-                    </div>
-                    <div class="contact-card">
-                        <i class="fa-brands fa-instagram contact-icon highlight"></i>
-                        <h2 class="contact-title">Socials</h2>
-                        <p>@star.photography88</p>
-                    </div>
-                </div>
-                <div class="contact-columns">
-                    <div class="left-column">
-                        <h2>Get In Touch</h2>
-                        <p>Capturing Moments, Celebrating Heritage: Your Latina Lens to Timeless
-                            Memories!</p>
-                    </div>
-                    <div class="right-column">
-                        <div class="contact-form">
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="text" name="fullname" placeholder="Full Name" required>
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Email Address" required>
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="message" placeholder="Your Message" required></textarea>
-                                    <i class="fas fa-comment"></i>
-                                </div>
-                                <button type="submit">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <!-- Copyright Column -->
+          <div class="footer-column">
+            <p class="copyright">
+              &copy; <span id="current-year"></span> Star Photos, LLC
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-        <footer>
-            <div class="container">
-                <div class="footer-columns">
-                    <!-- Social Media Links Column -->
-                    <div class="footer-column">
-                        <h1>Socials</h1>
-                        <ul class="footer-socials">
-                            <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a></li>
-                            <li><a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a></li>
-                            <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Navigation Links Column -->
-                    <div class="footer-column">
-                        <h1>Links</h1>
-                        <ul class="footer-links">
-                            <li><a href="#" aria-label="Home">Home</a></li>
-                            <li><a href="#" aria-label="About">About</a></li>
-                            <li><a href="#" aria-label="Services">Services</a></li>
-                            <li><a href="#" aria-label="Contact">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Copyright Column -->
-                    <div class="footer-column">
-                        <p class="copyright">&copy; <span id="current-year"></span> Star Photos, LLC</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <script src="/scripts.js"></script>
-    </body>
-
+    <script src="/scripts.js"></script>
+  </body>
 </html>
