@@ -1028,3 +1028,120 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* ─── Reviews ─── */
+.reviews-intro {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reviews-grid {
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.review-card {
+  position: relative;
+  padding: 3rem 2.5rem 2.5rem;
+  background: var(--cream);
+  border: 1px solid rgba(42, 36, 32, 0.08);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(42, 36, 32, 0.08);
+}
+
+/* Big decorative opening quote */
+.review-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--rose-light);
+  pointer-events: none;
+}
+
+.review-stars {
+  margin-bottom: 1.2rem;
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.review-quote {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.75rem;
+  color: var(--charcoal-light);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.review-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+
+.review-author-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.review-author-info strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.review-author-info span {
+  color: var(--charcoal-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .review-card:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .review-card:nth-child(3) {
+    grid-column: auto;
+    max-width: none;
+  }
+  .review-card {
+    padding: 2.5rem 2rem 2rem;
+  }
+}
