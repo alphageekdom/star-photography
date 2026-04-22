@@ -126,53 +126,47 @@
     </section>
 
     <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="left-column">
+    <section class="section section--warm about" id="about">
+      <div class="about-grid">
+        <div class="about-image-wrap reveal">
           <img
-            src="https://images.unsplash.com/photo-1559405201-8f58c61e7dde?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Portrait of myself, Star"
-            width="400"
-            height="600"
+            src="https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1024/v1776882811/star-photography/about-star.jpg"
+            srcset="
+              https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_640/v1776882811/star-photography/about-star.jpg   640w,
+              https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1024/v1776882811/star-photography/about-star.jpg 1024w,
+              https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1600/v1776882811/star-photography/about-star.jpg 1600w
+            "
+            sizes="(max-width: 768px) 90vw, (max-width: 1200px) 44vw, 560px"
+            alt="Star, portrait and wedding photographer, smiling with her camera"
             loading="lazy"
           />
         </div>
-        <div class="right-column">
-          <h1>Hi, I'm <span class="highlight">Star</span></h1>
+
+        <div class="about-text reveal">
+          <p class="section-tag">About</p>
+          <h2 class="section-title">Hi, I'm <em>Star</em></h2>
+
           <p>
-            As a passionate Latina photographer, I am dedicated to capturing the
-            beauty and emotion of every portrait and wedding I shoot. With a
-            keen eye for detail and a genuine
-            <span class="underline">love</span> for the art of photography, I
-            strive to create images that resonate with authenticity and warmth.
-            My clients often praise my ability to make them feel comfortable in
-            front of the camera, resulting in natural and genuine photographs
-            that truly reflect their personalities and relationships.
+            As a passionate Latina photographer based in Orange, California, I'm
+            dedicated to capturing the beauty and emotion of every portrait and
+            wedding I shoot. With a keen eye for detail and a genuine love for
+            the art of photography, I create images that resonate with
+            authenticity and warmth.
           </p>
+
           <p>
             My journey into photography began with a childhood fascination for
-            capturing fleeting moments, which has since evolved into a lifelong
-            pursuit of visual storytelling. With each click of my camera, I aim
-            to create images that not only document but also evoke emotion and
-            connection. Whether I'm photographing the tender moments of a
-            wedding day or the joyous smiles of a family during a portrait
-            session, I pour my heart and soul into every shot, aiming to create
-            timeless works of art that celebrate the beauty of life and love.
+            capturing fleeting moments — a pursuit that has since evolved into a
+            lifelong dedication to visual storytelling. Whether I'm
+            photographing the tender moments of a wedding day or the joyous
+            smiles of a family, I pour my heart into every shot, creating
+            timeless works of art that celebrate life and love.
           </p>
-          <div class="image-container">
-            <img
-              src="/images/kiss.png"
-              alt="Red Lipstick Kiss"
-              width="200"
-              height="100"
-              loading="lazy"
-            />
-            <p>XOXO</p>
-          </div>
+
+          <p class="about-signature">&mdash; Star</p>
         </div>
       </div>
     </section>
-
     <!-- Portfolio -->
     <section id="portfolio">
       <h1>My <span class="highlight">Work</span></h1>
@@ -492,6 +486,6 @@
       </div>
     </footer>
 
-    <script src="/scripts.js"></script>
+    <script src="scripts.js"></script>
   </body>
 </html>

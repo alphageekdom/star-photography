@@ -53,3 +53,29 @@ desktopQuery.addEventListener('change', (e) => {
     toggleMobileMenu(false);
   }
 });
+
+// ─── Scroll Reveal ──────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window && revealEls.length) {
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // small stagger when multiple elements cross the threshold together
+          setTimeout(() => entry.target.classList.add('is-visible'), i * 80);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    }
+  );
+
+  revealEls.forEach((el) => revealObserver.observe(el));
+} else {
+  // Fallback: just show everything if IntersectionObserver isn't supported
+  revealEls.forEach((el) => el.classList.add('is-visible'));
+}
