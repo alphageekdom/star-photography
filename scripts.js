@@ -1,3 +1,14 @@
+// ─── Preloader ───────────────────────────────────────────
+const preloader = document.getElementById('preloader');
+const dismissPreloader = () => preloader.classList.add('loaded');
+
+window.addEventListener('load', () => {
+  setTimeout(dismissPreloader, 400);
+});
+
+// Safety: force-dismiss after 6s in case `load` never fires (e.g. broken asset).
+setTimeout(dismissPreloader, 6000);
+
 // ─── Navbar scroll state ─────────────────────────────────
 const nav = document.getElementById('nav');
 
