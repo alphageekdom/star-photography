@@ -134,6 +134,12 @@ body {
   color: var(--gold-light);
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 5%;
+  }
+}
+
 /* Scroll Reveal */
 .reveal {
   opacity: 0;
@@ -399,7 +405,6 @@ body {
   color: var(--gold);
 }
 
-/* Navbar Responsive */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -590,7 +595,6 @@ body {
   }
 }
 
-/* Hero Responsive */
 @media (max-width: 1024px) {
   .scroll-indicator {
     display: none;
@@ -661,12 +665,7 @@ body {
   color: var(--terracotta);
 }
 
-/* About Responsive */
 @media (max-width: 768px) {
-  .section {
-    padding: 5rem 5%;
-  }
-
   .about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -755,7 +754,6 @@ body {
   font-size: 0.65rem;
 }
 
-/* Services Responsive */
 @media (max-width: 1024px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -780,5 +778,253 @@ body {
   }
   .service-card-content {
     padding: 2rem 1.75rem;
+  }
+}
+
+/* ─── Gallery ─── */
+.gallery-intro {
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gallery-grid {
+  max-width: 1300px;
+  margin: 3rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 300px;
+  grid-auto-flow: dense;
+  gap: 1.2rem;
+}
+
+.gallery-item {
+  /* reset button defaults */
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Portrait images get double height; dense flow backfills with landscapes */
+.gallery-item--tall {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+  transform: scale(1.03);
+  filter: saturate(1);
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(42, 36, 32, 0.75) 0%,
+    rgba(42, 36, 32, 0.1) 60%,
+    rgba(42, 36, 32, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-visible .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--cream);
+  text-align: left;
+}
+
+/* Mobile-only CTA shown on the first tile; taps the same button to open the lightbox */
+.gallery-overlay-cta {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-item--tablet-hide {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .gallery-item--tall {
+    grid-row: auto;
+  }
+  .gallery-item img {
+    height: auto;
+  }
+
+  /* Show only the first image; it acts as a cover that opens the full lightbox */
+  .gallery-grid > .gallery-item:not(:first-child) {
+    display: none;
+  }
+
+  .gallery-grid > .gallery-item:first-child .gallery-overlay {
+    opacity: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .gallery-overlay-cta {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+}
+
+/* ─── Lightbox ─── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(42, 36, 32, 0.96);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.lightbox.is-open {
+  display: flex;
+  animation: lightboxFade 0.3s ease;
+}
+
+@keyframes lightboxFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lightbox img {
+  max-width: 85vw;
+  max-height: 82vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80vw;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(250, 247, 242, 0.75);
+  text-align: center;
+}
+
+/* Lightbox buttons: shared base */
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--cream);
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  color: var(--gold);
+}
+
+.lightbox-close {
+  top: 1.5rem;
+  right: 1.75rem;
+  font-size: 2rem;
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1;
+  padding: 0 1rem;
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+.lightbox-next {
+  right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav {
+    font-size: 2.25rem;
+    padding: 0 0.5rem;
+  }
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+  .lightbox-next {
+    right: 0.5rem;
+  }
+  .lightbox-caption {
+    bottom: 1.5rem;
+    font-size: 0.9rem;
   }
 }
