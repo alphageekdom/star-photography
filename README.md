@@ -4,6 +4,30 @@ A single-page marketing site for an Orange County–based portrait and wedding p
 
 **Live site:** [star-photography.netlify.app](https://star-photography.netlify.app)
 
+> **Note:** This is a portfolio piece. The business, reviews, pricing, and social handles are fabricated. Contact details (phone, email, address) are fake but written to look realistic for a small Orange County photographer — the phone number uses the FCC-reserved `555-01XX` fictional range. The geography referenced (Orange County / Orange, California) is real.
+
+## Screenshots
+
+Home page — responsive across breakpoints:
+
+<p align="center">
+  <img src="docs/screenshots/desktop-hero.jpeg" alt="Home page on desktop" width="640">
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/mobile-hero.jpeg" alt="Home page on mobile" width="180">
+</p>
+
+Portfolio gallery — masonry-style grid with dense flow:
+
+<p align="center">
+  <img src="docs/screenshots/desktop-gallery.jpeg" alt="Portfolio gallery" width="820">
+</p>
+
+Accessible lightbox — keyboard navigation, focus trap, Escape to close:
+
+<p align="center">
+  <img src="docs/screenshots/desktop-lightbox.jpeg" alt="Lightbox viewer" width="820">
+</p>
+
 ## Sections
 
 - **Hero** — full-bleed image with responsive `srcset` and LCP preload
@@ -22,6 +46,36 @@ A single-page marketing site for an Orange County–based portrait and wedding p
 - Responsive Cloudinary images (`f_auto,q_auto` + width-based `srcset`) for fast LCP
 - Contact and promo forms submit via `fetch` to Netlify without a page reload
 
+## Engineering notes
+
+A few decisions worth calling out:
+
+- **No framework.** This is a marketing site — SEO, LCP, and bundle size matter more than component reuse. React or Vue would add a tax (bundle, hydration, build pipeline) that the UX doesn't need.
+- **No build step.** The repo is deploy-ready as-is: push to `main`, Netlify serves the static files. Keeps the feedback loop tight and removes a class of breakage.
+- **Vanilla JS, scoped by section.** Each interaction (reveal, lightbox, mobile menu, promo popup, contact form) is its own block with graceful fallbacks — `IntersectionObserver` capability check, `localStorage` try/catch, focus-trap guards.
+- **Cloudinary for images.** `f_auto,q_auto` picks the best format (AVIF/WebP/JPG) per client, and `srcset` + `fetchpriority="high"` on the hero delivers the LCP image as a ~100 KB AVIF instead of a multi-MB JPG.
+- **Netlify forms for submissions.** Contact and promo email capture land in the Netlify dashboard with zero backend code. Hidden form stubs register the schemas at build time.
+- **Accessibility baked in.** Skip link, `:focus-visible` styling, focus trap in every modal, `aria-modal` / `aria-labelledby` / `aria-describedby`, `prefers-reduced-motion` respected across animations, reveal observer falls back to instant-show.
+
+## Performance
+
+Lighthouse (desktop) against production:
+
+| Performance | Accessibility | Best Practices | SEO |
+| :---------: | :-----------: | :------------: | :-: |
+|     92      |      91       |       96       | 100 |
+
+_Re-run:_ `npx lighthouse https://star-photography.netlify.app --preset=desktop --view`
+
+Key optimizations:
+
+- Hero LCP image preloaded with responsive `srcset` and `fetchpriority="high"`
+- Cloudinary `f_auto,q_auto` negotiates AVIF/WebP/JPG per client
+- `<script defer>` so parsing doesn't block
+- `loading="lazy"` on every below-the-fold image
+- Single same-origin CSS file to minimize round-trips
+- `prefers-reduced-motion` respected across animations
+
 ## Tech
 
 - HTML / CSS / JavaScript (no dependencies)
@@ -35,8 +89,11 @@ A single-page marketing site for an Orange County–based portrait and wedding p
 .
 ├── index.html        # markup for every section
 ├── scripts.js        # preloader, nav, reveal, lightbox, forms, promo
-└── css/
-    └── styles.css    # all styles
+├── favicon.svg       # inline gold-star favicon
+├── css/
+│   └── styles.css    # all styles
+└── docs/
+    └── screenshots/  # README images
 ```
 
 ## Local development
