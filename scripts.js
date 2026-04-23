@@ -165,7 +165,9 @@ if (galleryItems.length && lightbox) {
   };
 }
 
-// ─── Keyboard ────────────────────────────────────────────
+// ─── Global keyboard shortcuts ──────────────────────────
+// Single keydown listener routes Escape to whichever overlay is open,
+// and Arrow/Tab keys to the lightbox when it's active.
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
     toggleMobileMenu(false);
@@ -237,3 +239,206 @@ if (contactForm) {
     }
   });
 }
+
+// ─── Footer copyright year ──────────────────────────────
+const yearEl = document.getElementById('footerYear');
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
+
+// ─── Discount Popup ─────────────────────────────────────
+(() => {
+  const promo = document.getElementById('promo');
+  if (!promo) return;
+
+  const STORAGE_KEY = 'star_promo_v1';
+  const DISMISS_DAYS = 7;
+  const TIME_TRIGGER_MS = 30_000;
+  const SCROLL_TRIGGER_PCT = 0.6;
+
+  // ─ Storage helpers (gracefully no-op if localStorage is unavailable) ─
+  const getState = () => {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch {
+      return {};
+    }
+  };
+  const setState = (patch) => {
+    try {
+      const next = { ...getState(), ...patch, updated: Date.now() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch {
+      /* storage blocked — popup still works per-session */
+    }
+  };
+
+  const shouldSuppress = () => {
+    const { dismissedAt, convertedAt } = getState();
+    const windowMs = DISMISS_DAYS * 24 * 60 * 60 * 1000;
+    const now = Date.now();
+    if (convertedAt && now - convertedAt < windowMs) return true;
+    if (dismissedAt && now - dismissedAt < windowMs) return true;
+    return false;
+  };
+
+  // ─ Open / close ────────────────────────────────────────
+  let shown = false;
+  let lastFocused = null;
+
+  const openPromo = () => {
+    if (shown || shouldSuppress()) return;
+    shown = true;
+    lastFocused = document.activeElement;
+    promo.classList.add('is-open');
+    promo.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus the email field for quick typing
+    const email = document.getElementById('promoEmail');
+    if (email) setTimeout(() => email.focus(), 300);
+
+    teardownTriggers();
+  };
+
+  const closePromo = (reason = 'dismissed') => {
+    promo.classList.remove('is-open');
+    promo.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (reason === 'dismissed') setState({ dismissedAt: Date.now() });
+    if (lastFocused) lastFocused.focus();
+  };
+
+  // Close on backdrop/close-button/dismiss button
+  promo.addEventListener('click', (e) => {
+    if (e.target.closest('[data-promo-close]')) closePromo();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && promo.classList.contains('is-open')) closePromo();
+  });
+
+  // ─ Triggers: first of { 30s timer, 60% scroll, exit intent } ─
+  let timer = null;
+  const onScroll = () => {
+    const doc = document.documentElement;
+    const pct = (window.scrollY + window.innerHeight) / doc.scrollHeight;
+    if (pct >= SCROLL_TRIGGER_PCT) openPromo();
+  };
+  const onExitIntent = (e) => {
+    // Fires when the mouse leaves the top of the viewport toward the address bar
+    if (e.clientY <= 0 && e.relatedTarget === null) openPromo();
+  };
+
+  const setupTriggers = () => {
+    if (shouldSuppress()) return;
+    timer = setTimeout(openPromo, TIME_TRIGGER_MS);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('mouseout', onExitIntent);
+  };
+
+  const teardownTriggers = () => {
+    clearTimeout(timer);
+    window.removeEventListener('scroll', onScroll);
+    document.removeEventListener('mouseout', onExitIntent);
+  };
+
+  // Kick off triggers after the page has settled a beat
+  window.addEventListener('load', () => {
+    setTimeout(setupTriggers, 1500);
+  });
+
+  // ─ Form submission ─────────────────────────────────────
+  const form = document.getElementById('promoForm');
+  const errorEl = document.getElementById('promoError');
+  const submitBtn = form.querySelector('.promo-submit');
+  const submitLbl = submitBtn.querySelector('.promo-submit-label');
+  const emailEl = document.getElementById('promoEmail');
+
+  const offerState = promo.querySelector('[data-state="offer"]');
+  const successState = promo.querySelector('[data-state="success"]');
+  const codeTextEl = document.getElementById('promoCodeText');
+
+  // Generate a short, readable code per submission: STAR-XXXX
+  const generateCode = () => {
+    const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // no I/L/O/0/1
+    let out = '';
+    for (let i = 0; i < 4; i++)
+      out += chars[Math.floor(Math.random() * chars.length)];
+    return `STAR-${out}`;
+  };
+
+  const showSuccess = (code) => {
+    codeTextEl.textContent = code;
+    offerState.hidden = true;
+    successState.hidden = false;
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorEl.textContent = '';
+    emailEl.classList.remove('is-invalid');
+
+    const email = emailEl.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailEl.classList.add('is-invalid');
+      errorEl.textContent = 'Please enter a valid email address.';
+      emailEl.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitLbl.textContent = 'Sending…';
+
+    const code = generateCode();
+
+    try {
+      const body = new URLSearchParams({
+        'form-name': 'promo',
+        email,
+        code,
+        'bot-field': '',
+      }).toString();
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+      // Treat the submit as successful even if network hiccups —
+      // the user still gets their code on screen. Netlify logs anything that arrives.
+    } catch {
+      /* ignore — still show the code */
+    }
+
+    setState({ convertedAt: Date.now(), email });
+    showSuccess(code);
+  });
+
+  // ─ Copy code to clipboard ─────────────────────────────
+  const copyBtn = document.getElementById('promoCopy');
+  const copyLabel = copyBtn.querySelector('.promo-copy-label');
+
+  copyBtn.addEventListener('click', async () => {
+    const code = codeTextEl.textContent;
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      // Fallback for older browsers or insecure contexts
+      const range = document.createRange();
+      range.selectNode(codeTextEl);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.execCommand('copy');
+      sel.removeAllRanges();
+    }
+    copyBtn.classList.add('is-copied');
+    copyLabel.textContent = 'Copied';
+    setTimeout(() => {
+      copyBtn.classList.remove('is-copied');
+      copyLabel.textContent = 'Copy';
+    }, 2000);
+  });
+})();

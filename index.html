@@ -563,60 +563,346 @@
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <div class="footer-columns">
-          <!-- Social Media Links Column -->
-          <div class="footer-column">
-            <h1>Socials</h1>
-            <ul class="footer-socials">
-              <li>
-                <a href="#" aria-label="Facebook"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" aria-label="Pinterest"
-                  ><i class="fa-brands fa-pinterest-p"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" aria-label="Twitter"
-                  ><i class="fa-brands fa-x-twitter"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" aria-label="Instagram"
-                  ><i class="fa-brands fa-instagram"></i
-                ></a>
-              </li>
-              <li>
-                <a href="#" aria-label="TikTok"
-                  ><i class="fa-brands fa-tiktok"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" aria-label="Star Photography — Home"
+            >Star</a
+          >
+          <p>
+            Capturing moments, celebrating heritage. Your Latina lens to
+            timeless memories.
+          </p>
+        </div>
 
-          <!-- Navigation Links Column -->
-          <div class="footer-column">
-            <h1>Links</h1>
-            <ul class="footer-links">
-              <li><a href="#" aria-label="Home">Home</a></li>
-              <li><a href="#" aria-label="About">About</a></li>
-              <li><a href="#" aria-label="Services">Services</a></li>
-              <li><a href="#" aria-label="Contact">Contact</a></li>
-            </ul>
+        <nav class="footer-links" aria-label="Footer">
+          <div class="footer-links-col">
+            <h5>Navigate</h5>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Portfolio</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
           </div>
+          <div class="footer-links-col">
+            <h5>Services</h5>
+            <a href="#services">Weddings</a>
+            <a href="#services">Portraits</a>
+            <a href="#services">Destinations</a>
+          </div>
+        </nav>
+      </div>
 
-          <!-- Copyright Column -->
-          <div class="footer-column">
-            <p class="copyright">
-              &copy; <span id="current-year"></span> Star Photos, LLC
+      <div class="footer-bottom">
+        <span class="footer-copy"
+          >&copy; <span id="footerYear">2026</span> Star Photos, LLC. All rights
+          reserved.</span
+        >
+        <ul class="footer-socials" aria-label="Social media and listings">
+          <li>
+            <a
+              href="https://instagram.com/star.photography88"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow on Instagram"
+            >
+              <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="5"
+                  ry="5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+              </svg>
+              <span class="sr-only">Instagram</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://tiktok.com/@star.photography88"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow on TikTok"
+            >
+              <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M14 4v10.5a2.5 2.5 0 1 1-2.5-2.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14 4c.3 1.8 1.6 3.3 3.5 3.8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="sr-only">TikTok</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://pinterest.com/starphotography88"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow on Pinterest"
+            >
+              <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M11 7.5c-2.5 0-4 1.8-4 3.8 0 1.2.5 2.3 1.5 2.7.2.1.3 0 .3-.2l.1-.6c0-.2 0-.2-.1-.4-.3-.4-.5-.9-.5-1.5 0-1.9 1.4-3.6 3.7-3.6 2 0 3.1 1.2 3.1 2.9 0 2.2-1 4-2.4 4-.8 0-1.4-.7-1.2-1.5.2-1 .7-2 .7-2.7 0-.6-.3-1.1-1-1.1-.8 0-1.5.9-1.5 2 0 .7.3 1.2.3 1.2s-.9 3.9-1.1 4.6c-.3 1.3-.1 2.8 0 3 .1.1.2.1.3 0 .1-.1 1.4-1.8 1.9-3.1.1-.4.7-2.7.7-2.7.4.7 1.4 1.2 2.5 1.2 3.3 0 5.5-3 5.5-6.4 0-2.5-2.1-4.8-5.4-4.8z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span class="sr-only">Pinterest</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.theknot.com/marketplace/star-photography-orange-ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View profile on The Knot"
+            >
+              <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M8 5c-1.5 2 .5 4 2.5 5.5C13 12 15 13.5 15 16c0 1.5-1.3 3-3 3-1.8 0-3-1.3-3-3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 5c1.5 2-.5 4-2.5 5.5C11 12 9 13.5 9 16c0 1.5 1.3 3 3 3 1.8 0 3-1.3 3-3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="sr-only">The Knot</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://g.page/star-photography-orange"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Google Business profile"
+            >
+              <svg
+                class="social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M12 3c-3.3 0-6 2.7-6 6 0 4.5 6 12 6 12s6-7.5 6-12c0-3.3-2.7-6-6-6z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="9"
+                  r="2.2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <span class="sr-only">Google</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Discount Popup -->
+    <div
+      class="promo"
+      id="promo"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="promoTitle"
+      aria-describedby="promoDesc"
+      aria-hidden="true"
+    >
+      <div class="promo-backdrop" data-promo-close></div>
+
+      <div class="promo-card">
+        <button
+          class="promo-close"
+          type="button"
+          aria-label="Close"
+          data-promo-close
+        >
+          &times;
+        </button>
+
+        <!-- Offer state -->
+        <div class="promo-state" data-state="offer">
+          <img
+            class="promo-image"
+            src="https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_900/v1776904181/star-photography/promo-gift.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <div class="promo-content">
+            <p class="promo-eyebrow">A Little Gift</p>
+            <h3 class="promo-title" id="promoTitle">
+              Save <em>$100</em> on your next session
+            </h3>
+            <p class="promo-desc" id="promoDesc">
+              Join the newsletter for behind-the-scenes moments and seasonal
+              offers. I'll send your $100 code straight to your inbox.
+            </p>
+
+            <form class="promo-form" id="promoForm" novalidate>
+              <label for="promoEmail" class="sr-only">Email address</label>
+              <input
+                id="promoEmail"
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="btn btn-filled promo-submit">
+                <span class="promo-submit-label">Send my code</span>
+              </button>
+              <p class="promo-error" id="promoError" role="alert"></p>
+            </form>
+
+            <p class="promo-fine">
+              No spam — unsubscribe any time. Valid on bookings of $500+.
             </p>
           </div>
         </div>
+
+        <!-- Success state -->
+        <div class="promo-state" data-state="success" hidden>
+          <div class="promo-success">
+            <div class="promo-success-mark" aria-hidden="true">
+              <svg viewBox="0 0 52 52">
+                <circle
+                  cx="26"
+                  cy="26"
+                  r="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+                <path
+                  d="M14 27l8 8 16-18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <p class="promo-eyebrow">Your Code</p>
+            <h3 class="promo-title">Here's <em>$100 off</em></h3>
+            <div class="promo-code" id="promoCode">
+              <code id="promoCodeText">STAR100</code>
+              <button
+                type="button"
+                class="promo-copy"
+                id="promoCopy"
+                aria-label="Copy code"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect
+                    x="9"
+                    y="9"
+                    width="11"
+                    height="11"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M5 15V6a2 2 0 0 1 2-2h9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                <span class="promo-copy-label">Copy</span>
+              </button>
+            </div>
+            <p class="promo-desc">
+              Mention this code when you book. It's also on its way to your
+              inbox.
+            </p>
+            <button type="button" class="btn promo-dismiss" data-promo-close>
+              Start Exploring
+            </button>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
+
+    <!-- Hidden Netlify form — registers "promo" form with Netlify at build time -->
+    <form name="promo" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+      <input type="text" name="code" />
+      <input type="text" name="bot-field" />
+    </form>
   </body>
 </html>
