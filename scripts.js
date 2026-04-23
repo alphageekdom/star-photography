@@ -288,6 +288,40 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
+// ─── Seasonal content & pricing ─────────────────────────
+// Meteorological seasons (Northern Hemisphere): Dec–Feb winter, Mar–May spring,
+// Jun–Aug summer, Sep–Nov fall. Drives promo copy + service pricing.
+const SEASONS = [
+  'winter', 'winter',
+  'spring', 'spring', 'spring',
+  'summer', 'summer', 'summer',
+  'fall', 'fall', 'fall',
+  'winter',
+];
+const currentSeason = SEASONS[new Date().getMonth()];
+
+const seasonEl = document.getElementById('promoSeason');
+if (seasonEl) seasonEl.textContent = currentSeason;
+
+// Multipliers reflect OC wedding/portrait demand: spring = peak wedding
+// season, fall = second peak + holiday portraits, winter = slow season
+// (booking incentive), summer = baseline.
+const SEASON_PRICE_MULTIPLIER = {
+  spring: 1.15,
+  summer: 1.0,
+  fall: 1.1,
+  winter: 0.85,
+};
+const priceMultiplier = SEASON_PRICE_MULTIPLIER[currentSeason];
+
+document.querySelectorAll('[data-base-price]').forEach((el) => {
+  const base = Number(el.dataset.basePrice);
+  const unit = el.dataset.priceUnit;
+  // Round to nearest $5 so displayed prices stay clean (e.g. $402.50 → $405).
+  const adjusted = Math.round((base * priceMultiplier) / 5) * 5;
+  el.textContent = `Starting at $${adjusted.toLocaleString()} / ${unit}`;
+});
+
 // ─── Discount Popup ─────────────────────────────────────
 (() => {
   const promo = document.getElementById('promo');

@@ -198,7 +198,13 @@
           />
           <div class="service-card-content">
             <h3 class="service-card-title">Weddings</h3>
-            <p class="service-card-price">Starting at $1,000 / hour</p>
+            <p
+              class="service-card-price"
+              data-base-price="1000"
+              data-price-unit="hour"
+            >
+              Starting at $1,000 / hour
+            </p>
             <a href="#contact" class="btn">Book Now</a>
           </div>
         </article>
@@ -211,7 +217,13 @@
           />
           <div class="service-card-content">
             <h3 class="service-card-title">Portraits</h3>
-            <p class="service-card-price">Starting at $350 / session</p>
+            <p
+              class="service-card-price"
+              data-base-price="350"
+              data-price-unit="session"
+            >
+              Starting at $350 / session
+            </p>
             <a href="#contact" class="btn">Book Now</a>
           </div>
         </article>
@@ -224,7 +236,13 @@
           />
           <div class="service-card-content">
             <h3 class="service-card-title">Destinations</h3>
-            <p class="service-card-price">Starting at $550 / hour</p>
+            <p
+              class="service-card-price"
+              data-base-price="550"
+              data-price-unit="hour"
+            >
+              Starting at $550 / hour
+            </p>
             <a href="#contact" class="btn">Book Now</a>
           </div>
         </article>
@@ -811,8 +829,9 @@
               Save <em>$100</em> on your next session
             </h3>
             <p class="promo-desc" id="promoDesc">
-              Join the newsletter for behind-the-scenes moments and seasonal
-              offers. I'll send your $100 code straight to your inbox.
+              Join the newsletter for behind-the-scenes moments and
+              <span id="promoSeason">seasonal</span> offers. I'll send your $100
+              code straight to your inbox.
             </p>
 
             <form class="promo-form" id="promoForm" novalidate>
