@@ -37,6 +37,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: var(--font-body);
   color: var(--charcoal);
@@ -160,6 +166,49 @@ body {
     transform: none;
     transition: none;
   }
+}
+
+/* Skip link — visible only on keyboard focus, first focusable on the page */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--charcoal);
+  color: var(--cream);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-120%);
+  transition: transform 0.25s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Global focus ring for keyboard users — high-contrast gold outline */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Dark sections: same ring works; ensure buttons/inputs don't get doubled */
+.btn:focus-visible,
+.hamburger:focus-visible,
+.nav-links a:focus-visible,
+.mobile-menu a:focus-visible,
+.scroll-indicator:focus-visible,
+.lightbox-close:focus-visible,
+.lightbox-nav:focus-visible,
+.promo-close:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 /* Visually hidden but read by screen readers */
@@ -528,7 +577,7 @@ body {
 }
 
 .scroll-indicator span:first-child {
-  color: rgba(250, 247, 242, 0.55);
+  color: rgba(250, 247, 242, 0.8);
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -1246,7 +1295,7 @@ body {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(250, 247, 242, 0.4);
+  color: rgba(250, 247, 242, 0.65);
   font-weight: 300;
 }
 
@@ -1309,7 +1358,7 @@ body {
 .site-footer {
   padding: 4rem 6% 2rem;
   background: #1e1a17;
-  color: rgba(250, 247, 242, 0.55);
+  color: rgba(250, 247, 242, 0.8);
 }
 
 .footer-top {
@@ -1352,7 +1401,7 @@ body {
 .footer-links-col a {
   display: block;
   margin-bottom: 0.5rem;
-  color: rgba(250, 247, 242, 0.55);
+  color: rgba(250, 247, 242, 0.8);
   font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -1388,9 +1437,9 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: rgba(250, 247, 242, 0.55);
+  color: rgba(250, 247, 242, 0.8);
   text-decoration: none;
-  border: 1px solid rgba(250, 247, 242, 0.12);
+  border: 1px solid rgba(250, 247, 242, 0.25);
   border-radius: 50%;
   transition:
     color 0.3s ease,

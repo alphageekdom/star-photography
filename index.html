@@ -38,9 +38,12 @@
   </head>
 
   <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <!-- Preloader -->
-    <div id="preloader">
-      <div class="preloader-bg"></div>
+    <div id="preloader" role="status" aria-live="polite">
+      <div class="preloader-bg" aria-hidden="true"></div>
       <div class="preloader-content">
         <h2 class="loading-text">Capturing the perfect moment...</h2>
         <p class="sub-text">Your visual story is loading</p>
@@ -49,7 +52,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="nav" class="nav">
+    <nav id="nav" class="nav" aria-label="Primary">
       <a href="#" class="nav-logo" aria-label="Star Photography — Home">Star</a>
 
       <ul class="nav-links">
@@ -72,7 +75,14 @@
     </nav>
 
     <!-- Mobile menu overlay -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site navigation"
+      aria-hidden="true"
+    >
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#gallery">Portfolio</a>
@@ -80,6 +90,7 @@
       <a href="#contact">Contact</a>
     </div>
 
+    <main id="main">
     <!-- Hero -->
     <section class="hero">
       <img
@@ -370,14 +381,6 @@
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <!-- Modal Content (The Image) -->
-      <img class="modal-content" id="modalImg" />
-      <div id="caption" class="caption"></div>
-    </div>
-
     <!-- Reviews -->
     <section class="section section--warm reviews" id="reviews">
       <div class="reviews-intro reveal">
@@ -558,10 +561,12 @@
             id="contactFormStatus"
             role="status"
             aria-live="polite"
+            aria-atomic="true"
           ></p>
         </form>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="site-footer">

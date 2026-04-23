@@ -27,6 +27,7 @@ if (nav) {
 // ─── Mobile menu toggle ──────────────────────────────────
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
+let mobileMenuLastFocused = null;
 
 const toggleMobileMenu = (open) => {
   if (!hamburger || !mobileMenu) return;
@@ -36,6 +37,32 @@ const toggleMobileMenu = (open) => {
   hamburger.setAttribute('aria-expanded', isOpen);
   mobileMenu.setAttribute('aria-hidden', !isOpen);
   document.body.style.overflow = isOpen ? 'hidden' : '';
+
+  if (isOpen) {
+    mobileMenuLastFocused = document.activeElement;
+    // Focus the first link so keyboard users land inside the menu
+    const firstLink = mobileMenu.querySelector('a');
+    if (firstLink) setTimeout(() => firstLink.focus(), 50);
+  } else if (mobileMenuLastFocused) {
+    mobileMenuLastFocused.focus();
+  }
+};
+
+// Keep Tab / Shift+Tab cycling between the menu's links while it's open
+const trapMobileMenuFocus = (e) => {
+  if (!mobileMenu?.classList.contains('active')) return;
+  const links = mobileMenu.querySelectorAll('a');
+  if (!links.length) return;
+  const first = links[0];
+  const last = links[links.length - 1];
+  const active = document.activeElement;
+  if (e.shiftKey && active === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && active === last) {
+    e.preventDefault();
+    first.focus();
+  }
 };
 
 if (hamburger && mobileMenu) {
@@ -169,9 +196,12 @@ if (galleryItems.length && lightbox) {
 // Single keydown listener routes Escape to whichever overlay is open,
 // and Arrow/Tab keys to the lightbox when it's active.
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
-    toggleMobileMenu(false);
-    return;
+  if (mobileMenu?.classList.contains('active')) {
+    if (e.key === 'Escape') {
+      toggleMobileMenu(false);
+      return;
+    }
+    if (e.key === 'Tab') trapMobileMenuFocus(e);
   }
 
   if (lightboxAPI && lightbox?.classList.contains('is-open')) {
@@ -314,9 +344,36 @@ if (yearEl) {
     if (e.target.closest('[data-promo-close]')) closePromo();
   });
 
-  // Close on Escape
+  // Keep Tab / Shift+Tab cycling within the dialog's focusable controls
+  const getPromoFocusables = () => {
+    const selector =
+      'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    return Array.from(promo.querySelectorAll(selector)).filter(
+      (el) => !el.closest('[hidden]') && el.offsetParent !== null
+    );
+  };
+
+  // Close on Escape, trap Tab focus while open
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && promo.classList.contains('is-open')) closePromo();
+    if (!promo.classList.contains('is-open')) return;
+    if (e.key === 'Escape') {
+      closePromo();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusables = getPromoFocusables();
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 
   // ─ Triggers: first of { 30s timer, 60% scroll, exit intent } ─
