@@ -14,6 +14,11 @@
   --warm-white: #fffdf9;
   --charcoal: #2a2420;
   --charcoal-light: #4a4440;
+  --charcoal-dark: #1e1a17;
+
+  /* RGB channels for alpha variants (rgba(var(--x-rgb), 0.5)) */
+  --cream-rgb: 250, 247, 242;
+  --charcoal-rgb: 42, 36, 32;
 
   /* Accents — terracotta, rose, gold, sage */
   --terracotta: #c17b5a;
@@ -28,8 +33,19 @@
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Nunito Sans', 'Helvetica Neue', sans-serif;
 
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
   /* Layout */
   --nav-height: 72px;
+
+  /* Z-index scale */
+  --z-mobile-menu: 99;
+  --z-nav: 100;
+  --z-lightbox: 200;
+  --z-promo: 300;
+  --z-preloader: 9999;
+  --z-skip: 10000;
 }
 
 /* ─── Base ─── */
@@ -151,8 +167,8 @@ body {
   opacity: 0;
   transform: translateY(40px);
   transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo);
 }
 
 .reveal.is-visible {
@@ -173,7 +189,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: var(--z-skip);
   padding: 0.75rem 1.25rem;
   background: var(--charcoal);
   color: var(--cream);
@@ -198,19 +214,6 @@ body {
   outline-offset: 3px;
 }
 
-/* Dark sections: same ring works; ensure buttons/inputs don't get doubled */
-.btn:focus-visible,
-.hamburger:focus-visible,
-.nav-links a:focus-visible,
-.mobile-menu a:focus-visible,
-.scroll-indicator:focus-visible,
-.lightbox-close:focus-visible,
-.lightbox-nav:focus-visible,
-.promo-close:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-}
-
 /* Visually hidden but read by screen readers */
 .sr-only {
   position: absolute;
@@ -228,7 +231,7 @@ body {
 #preloader {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: var(--z-preloader);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -250,8 +253,8 @@ body {
   background:
     linear-gradient(
       to top,
-      rgba(42, 36, 32, 0.85) 0%,
-      rgba(42, 36, 32, 0.55) 100%
+      rgba(var(--charcoal-rgb), 0.85) 0%,
+      rgba(var(--charcoal-rgb), 0.55) 100%
     ),
     url('https://res.cloudinary.com/alphageekdom-dev/image/upload/f_auto,q_auto,w_1600/v1776879726/star-photography/hero-couple-beach-sunset.jpg')
       center / cover no-repeat;
@@ -284,7 +287,7 @@ body {
 
 .sub-text {
   margin: 0;
-  color: rgba(250, 247, 242, 0.65);
+  color: rgba(var(--cream-rgb), 0.65);
   font-size: 0.7rem;
   font-weight: 400;
   letter-spacing: 0.35em;
@@ -339,7 +342,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: var(--z-nav);
   padding: 1.5rem 4%;
   display: flex;
   align-items: center;
@@ -351,7 +354,7 @@ body {
 }
 
 .nav.scrolled {
-  background: rgba(42, 36, 32, 0.85);
+  background: rgba(var(--charcoal-rgb), 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 1rem 4%;
@@ -437,13 +440,13 @@ body {
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: var(--z-mobile-menu);
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  background: rgba(42, 36, 32, 0.97);
+  background: rgba(var(--charcoal-rgb), 0.97);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -502,9 +505,9 @@ body {
   z-index: 1;
   background: linear-gradient(
     to top,
-    rgba(42, 36, 32, 0.85) 0%,
-    rgba(42, 36, 32, 0.35) 45%,
-    rgba(42, 36, 32, 0.1) 100%
+    rgba(var(--charcoal-rgb), 0.85) 0%,
+    rgba(var(--charcoal-rgb), 0.35) 45%,
+    rgba(var(--charcoal-rgb), 0.1) 100%
   );
 }
 
@@ -546,7 +549,7 @@ body {
 .hero-desc {
   max-width: 500px;
   margin-bottom: 2.5rem;
-  color: rgba(250, 247, 242, 0.78);
+  color: rgba(var(--cream-rgb), 0.78);
   font-size: 1.05rem;
   opacity: 0;
   animation: heroFadeUp 0.9s ease 0.6s forwards;
@@ -577,7 +580,7 @@ body {
 }
 
 .scroll-indicator span:first-child {
-  color: rgba(250, 247, 242, 0.8);
+  color: rgba(var(--cream-rgb), 0.8);
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -592,7 +595,7 @@ body {
   position: relative;
   width: 1px;
   height: 40px;
-  background: rgba(250, 247, 242, 0.25);
+  background: rgba(var(--cream-rgb), 0.25);
   overflow: hidden;
 }
 
@@ -771,7 +774,7 @@ body {
   display: block;
   filter: brightness(0.6) saturate(0.8);
   transition:
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s var(--ease-out-expo),
     filter 0.7s ease;
 }
 
@@ -789,8 +792,8 @@ body {
   padding: 2.5rem;
   background: linear-gradient(
     to top,
-    rgba(42, 36, 32, 0.92) 0%,
-    rgba(42, 36, 32, 0) 100%
+    rgba(var(--charcoal-rgb), 0.92) 0%,
+    rgba(var(--charcoal-rgb), 0) 100%
   );
 }
 
@@ -887,7 +890,7 @@ body {
   object-fit: cover;
   filter: saturate(0.85);
   transition:
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s var(--ease-out-expo),
     filter 0.6s ease;
 }
 
@@ -910,9 +913,9 @@ body {
   padding: 1.5rem;
   background: linear-gradient(
     to top,
-    rgba(42, 36, 32, 0.75) 0%,
-    rgba(42, 36, 32, 0.1) 60%,
-    rgba(42, 36, 32, 0) 100%
+    rgba(var(--charcoal-rgb), 0.75) 0%,
+    rgba(var(--charcoal-rgb), 0.1) 60%,
+    rgba(var(--charcoal-rgb), 0) 100%
   );
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -987,11 +990,11 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: var(--z-lightbox);
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(42, 36, 32, 0.96);
+  background: rgba(var(--charcoal-rgb), 0.96);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -1026,7 +1029,7 @@ body {
   font-family: var(--font-display);
   font-size: 1rem;
   font-style: italic;
-  color: rgba(250, 247, 242, 0.75);
+  color: rgba(var(--cream-rgb), 0.75);
   text-align: center;
 }
 
@@ -1110,7 +1113,7 @@ body {
   position: relative;
   padding: 3rem 2.5rem 2.5rem;
   background: var(--cream);
-  border: 1px solid rgba(42, 36, 32, 0.08);
+  border: 1px solid rgba(var(--charcoal-rgb), 0.08);
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
@@ -1118,7 +1121,7 @@ body {
 
 .review-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(42, 36, 32, 0.08);
+  box-shadow: 0 20px 40px rgba(var(--charcoal-rgb), 0.08);
 }
 
 /* Big decorative opening quote */
@@ -1240,12 +1243,12 @@ body {
 }
 
 .contact-info-item p {
-  color: rgba(250, 247, 242, 0.75);
+  color: rgba(var(--cream-rgb), 0.75);
   font-size: 0.95rem;
 }
 
 .contact-info-item a {
-  color: rgba(250, 247, 242, 0.75);
+  color: rgba(var(--cream-rgb), 0.75);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -1281,8 +1284,8 @@ body {
 .contact-form input,
 .contact-form textarea {
   padding: 1rem 1.2rem;
-  background: rgba(250, 247, 242, 0.06);
-  border: 1px solid rgba(250, 247, 242, 0.15);
+  background: rgba(var(--cream-rgb), 0.06);
+  border: 1px solid rgba(var(--cream-rgb), 0.15);
   color: var(--cream);
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -1295,19 +1298,19 @@ body {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(250, 247, 242, 0.65);
+  color: rgba(var(--cream-rgb), 0.65);
   font-weight: 300;
 }
 
 .contact-form input:hover,
 .contact-form textarea:hover {
-  border-color: rgba(250, 247, 242, 0.3);
+  border-color: rgba(var(--cream-rgb), 0.3);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--gold);
-  background: rgba(250, 247, 242, 0.08);
+  background: rgba(var(--cream-rgb), 0.08);
 }
 
 /* Invalid state — only after the user has interacted */
@@ -1357,8 +1360,8 @@ body {
 /* ─── Footer ─── */
 .site-footer {
   padding: 4rem 6% 2rem;
-  background: #1e1a17;
-  color: rgba(250, 247, 242, 0.8);
+  background: var(--charcoal-dark);
+  color: rgba(var(--cream-rgb), 0.8);
 }
 
 .footer-top {
@@ -1369,7 +1372,7 @@ body {
   gap: 3rem;
   padding-bottom: 3rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+  border-bottom: 1px solid rgba(var(--cream-rgb), 0.08);
 }
 
 .footer-brand .nav-logo {
@@ -1401,7 +1404,7 @@ body {
 .footer-links-col a {
   display: block;
   margin-bottom: 0.5rem;
-  color: rgba(250, 247, 242, 0.8);
+  color: rgba(var(--cream-rgb), 0.8);
   font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -1437,9 +1440,9 @@ body {
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: rgba(250, 247, 242, 0.8);
+  color: rgba(var(--cream-rgb), 0.8);
   text-decoration: none;
-  border: 1px solid rgba(250, 247, 242, 0.25);
+  border: 1px solid rgba(var(--cream-rgb), 0.25);
   border-radius: 50%;
   transition:
     color 0.3s ease,
@@ -1492,7 +1495,7 @@ body {
 .promo {
   position: fixed;
   inset: 0;
-  z-index: 300;
+  z-index: var(--z-promo);
   display: none;
   align-items: center;
   justify-content: center;
@@ -1506,7 +1509,7 @@ body {
 .promo-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(42, 36, 32, 0.65);
+  background: rgba(var(--charcoal-rgb), 0.65);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   opacity: 0;
@@ -1523,10 +1526,10 @@ body {
   max-height: calc(100vh - 3rem);
   overflow: hidden;
   background: var(--warm-white);
-  box-shadow: 0 30px 80px rgba(42, 36, 32, 0.25);
+  box-shadow: 0 30px 80px rgba(var(--charcoal-rgb), 0.25);
   transform: translateY(30px);
   opacity: 0;
-  animation: promoRise 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+  animation: promoRise 0.55s var(--ease-out-expo) 0.05s forwards;
 }
 
 @keyframes promoFade {
@@ -1624,7 +1627,7 @@ body {
 .promo-form input {
   padding: 0.9rem 1rem;
   background: var(--cream);
-  border: 1px solid rgba(42, 36, 32, 0.15);
+  border: 1px solid rgba(var(--charcoal-rgb), 0.15);
   color: var(--charcoal);
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -1636,7 +1639,7 @@ body {
 }
 
 .promo-form input::placeholder {
-  color: rgba(42, 36, 32, 0.4);
+  color: rgba(var(--charcoal-rgb), 0.4);
 }
 
 .promo-form input:focus {
@@ -1667,7 +1670,7 @@ body {
 
 .promo-fine {
   margin-top: 1rem;
-  color: rgba(42, 36, 32, 0.5);
+  color: rgba(var(--charcoal-rgb), 0.5);
   font-size: 0.72rem;
   letter-spacing: 0.02em;
 }
