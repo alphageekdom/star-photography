@@ -97,6 +97,7 @@ body {
 }
 
 .btn-filled {
+  color: var(--charcoal);
   background: var(--terracotta);
   border-color: var(--terracotta);
 }
@@ -1233,7 +1234,7 @@ body {
   margin-bottom: 0;
 }
 
-.contact-info-item h4 {
+.contact-info-item h3 {
   margin-bottom: 0.5rem;
   color: var(--gold);
   font-size: 0.65rem;
@@ -1392,7 +1393,7 @@ body {
   gap: 4rem;
 }
 
-.footer-links-col h5 {
+.footer-links-col h4 {
   margin-bottom: 1rem;
   color: var(--gold);
   font-size: 0.65rem;
