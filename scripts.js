@@ -179,3 +179,61 @@ document.addEventListener('keydown', (e) => {
     else if (e.key === 'Tab') lightboxAPI.trapFocus(e);
   }
 });
+
+// ─── Contact Form (Netlify) ─────────────────────────────
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
+  const status = document.getElementById('contactFormStatus');
+  const submitBtn = contactForm.querySelector('.contact-form-submit');
+  const submitLabel = submitBtn.querySelector('.contact-form-submit-label');
+
+  const setStatus = (message, type) => {
+    status.textContent = message;
+    status.classList.remove('is-success', 'is-error');
+    if (type) status.classList.add(`is-${type}`);
+  };
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending…';
+    setStatus('', null);
+
+    try {
+      const formData = new FormData(contactForm);
+      const body = new URLSearchParams(formData).toString();
+
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+
+      if (!res.ok) throw new Error('Network response was not ok');
+
+      contactForm.reset();
+      setStatus(
+        "Thanks — your message is on its way. I'll be in touch soon.",
+        'success'
+      );
+      submitLabel.textContent = 'Message Sent';
+      setTimeout(() => {
+        submitLabel.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      }, 3500);
+    } catch {
+      setStatus(
+        'Something went wrong. Please try again or email info@starphotosllc.com.',
+        'error'
+      );
+      submitLabel.textContent = 'Send Message';
+      submitBtn.disabled = false;
+    }
+  });
+}

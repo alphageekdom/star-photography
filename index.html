@@ -456,75 +456,110 @@
         </figure>
       </div>
     </section>
-
     <!-- Contact -->
-    <section id="contact">
-      <h1>Contact <span class="highlight">Me</span></h1>
-      <div class="container">
-        <div class="contact-cards">
-          <div class="contact-card">
-            <i class="fa-solid fa-location-dot contact-icon highlight"></i>
-            <h2 class="contact-title">Location</h2>
-            <p>1234 Sycamore Street Orange, CA 92865</p>
+    <section class="section section--dark contact" id="contact">
+      <div class="contact-intro reveal">
+        <p class="section-tag">Contact</p>
+        <h2 class="section-title">Let's create something <em>beautiful</em></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-info-item">
+            <h4>Location</h4>
+            <p>1234 Sycamore Street<br />Orange, CA 92865</p>
           </div>
-          <div class="contact-card">
-            <i class="fa-solid fa-phone contact-icon highlight"></i>
-            <h2 class="contact-title">Phone</h2>
-            <p>(714) 555-5555</p>
+          <div class="contact-info-item">
+            <h4>Phone</h4>
+            <p><a href="tel:+17145555555">(714) 555-5555</a></p>
           </div>
-          <div class="contact-card">
-            <i class="fa-regular fa-envelope contact-icon highlight"></i>
-            <h2 class="contact-title">Email</h2>
-            <p>info@starphotosllc.com</p>
-          </div>
-          <div class="contact-card">
-            <i class="fa-brands fa-instagram contact-icon highlight"></i>
-            <h2 class="contact-title">Socials</h2>
-            <p>@star.photography88</p>
-          </div>
-        </div>
-        <div class="contact-columns">
-          <div class="left-column">
-            <h2>Get In Touch</h2>
+          <div class="contact-info-item">
+            <h4>Email</h4>
             <p>
-              Capturing Moments, Celebrating Heritage: Your Latina Lens to
-              Timeless Memories!
+              <a href="mailto:info@starphotosllc.com">info@starphotosllc.com</a>
             </p>
           </div>
-          <div class="right-column">
-            <div class="contact-form">
-              <form action="#" method="post">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    name="fullname"
-                    placeholder="Full Name"
-                    required
-                  />
-                  <i class="fas fa-user"></i>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    required
-                  />
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="form-group">
-                  <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    required
-                  ></textarea>
-                  <i class="fas fa-comment"></i>
-                </div>
-                <button type="submit">Send Message</button>
-              </form>
-            </div>
+          <div class="contact-info-item">
+            <h4>Instagram</h4>
+            <p>
+              <a
+                href="https://instagram.com/star.photography88"
+                target="_blank"
+                rel="noopener noreferrer"
+                >@star.photography88</a
+              >
+            </p>
           </div>
         </div>
+
+        <form
+          class="contact-form reveal"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="contact-form-hp" aria-hidden="true">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name" class="sr-only">Name</label>
+              <input
+                id="cf-name"
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-field">
+              <label for="cf-email" class="sr-only">Email</label>
+              <input
+                id="cf-email"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cf-subject" class="sr-only">Subject</label>
+            <input
+              id="cf-subject"
+              type="text"
+              name="subject"
+              placeholder="Subject"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="cf-message" class="sr-only">Message</label>
+            <textarea
+              id="cf-message"
+              name="message"
+              placeholder="Tell me about your vision..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-filled contact-form-submit">
+            <span class="contact-form-submit-label">Send Message</span>
+          </button>
+
+          <p
+            class="contact-form-status"
+            id="contactFormStatus"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
       </div>
     </section>
 
