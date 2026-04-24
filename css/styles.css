@@ -1797,3 +1797,33 @@ body {
     padding: 2.5rem 1.75rem;
   }
 }
+
+/* ─── Footer credit (portfolio projects only) ─── */
+.footer-credit {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(var(--cream-rgb), 0.15);
+  color: rgba(var(--cream-rgb), 0.6);
+}
+
+.footer-credit a {
+  color: rgba(var(--cream-rgb), 0.85);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  color: var(--gold);
+}
+
+/* Stack credit below copyright on narrow screens */
+@media (max-width: 480px) {
+  .footer-credit {
+    display: block;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    border-left: none;
+  }
+}
