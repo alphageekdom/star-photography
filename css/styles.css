@@ -1690,7 +1690,7 @@ body {
 }
 
 .promo-form input::placeholder {
-  color: rgba(var(--charcoal-rgb), 0.4);
+  color: rgba(var(--charcoal-rgb), 0.6);
 }
 
 .promo-form input:focus {
@@ -1726,7 +1726,7 @@ body {
 
 .promo-fine {
   margin-top: 1rem;
-  color: rgba(var(--charcoal-rgb), 0.5);
+  color: rgba(var(--charcoal-rgb), 0.7);
   font-size: 0.72rem;
   letter-spacing: 0.02em;
 }
@@ -1859,7 +1859,7 @@ body {
   margin-left: 0.5rem;
   padding-left: 0.75rem;
   border-left: 1px solid rgba(var(--cream-rgb), 0.15);
-  color: rgba(var(--cream-rgb), 0.6);
+  color: rgba(var(--cream-rgb), 0.75);
 }
 
 .footer-credit a {
