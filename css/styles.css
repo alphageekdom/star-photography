@@ -209,10 +209,22 @@ body {
   outline-offset: 2px;
 }
 
-/* Global focus ring for keyboard users — high-contrast gold outline */
+/* Global focus ring for keyboard users.
+   Charcoal on light surfaces (gold-on-cream is ~2.2:1, below the 3:1
+   non-text contrast minimum); gold takes over on dark surfaces below. */
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--charcoal);
   outline-offset: 3px;
+}
+
+.hero :focus-visible,
+.nav :focus-visible,
+.mobile-menu :focus-visible,
+.section--dark :focus-visible,
+.site-footer :focus-visible,
+.lightbox :focus-visible,
+#preloader :focus-visible {
+  outline-color: var(--gold);
 }
 
 /* Visually hidden but read by screen readers */
@@ -901,11 +913,6 @@ body {
   filter: saturate(1);
 }
 
-.gallery-item:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-}
-
 .gallery-overlay {
   position: absolute;
   inset: 0;
@@ -1314,6 +1321,12 @@ body {
   background: rgba(var(--cream-rgb), 0.08);
 }
 
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 /* Invalid state — only after the user has interacted */
 .contact-form input:not(:placeholder-shown):invalid,
 .contact-form textarea:not(:placeholder-shown):invalid {
@@ -1646,6 +1659,11 @@ body {
 .promo-form input:focus {
   border-color: var(--gold);
   background: var(--warm-white);
+}
+
+.promo-form input:focus-visible {
+  outline: 2px solid var(--charcoal);
+  outline-offset: 2px;
 }
 
 .promo-form input.is-invalid {
