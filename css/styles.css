@@ -797,7 +797,6 @@ body {
   position: relative;
   overflow: hidden;
   height: 500px;
-  cursor: pointer;
 }
 
 .service-card img {
@@ -1277,13 +1276,19 @@ body {
 
 .contact-info-item a {
   color: rgba(var(--cream-rgb), 0.75);
-  text-decoration: none;
-  transition: color 0.3s ease;
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--cream-rgb), 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition:
+    color 0.3s ease,
+    text-decoration-color 0.3s ease;
 }
 
 .contact-info-item a:hover,
 .contact-info-item a:focus-visible {
   color: var(--gold);
+  text-decoration-color: var(--gold);
 }
 
 /* Form */
