@@ -1435,9 +1435,21 @@ body {
   text-transform: uppercase;
 }
 
-.footer-links-col a {
-  display: block;
+.footer-links-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-col li {
   margin-bottom: 0.5rem;
+}
+
+.footer-links-col li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-links-col a {
   color: rgba(var(--cream-rgb), 0.8);
   font-size: 0.85rem;
   text-decoration: none;
