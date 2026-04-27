@@ -69,6 +69,12 @@ body {
   overflow-x: hidden;
 }
 
+/* Hash-anchor jump offset — without this, fragment navigation parks the
+   target's top edge underneath the fixed navbar (var(--nav-height)). */
+:target {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
+}
+
 /* ─── Utilities ─── */
 
 /* Buttons */
