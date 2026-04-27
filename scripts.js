@@ -319,7 +319,7 @@ if (seasonEl) {
   const TIME_TRIGGER_MS = 30_000;
   const SCROLL_TRIGGER_PCT = 0.6;
   const TRIGGER_SETUP_DELAY_MS = 1500;
-  const EMAIL_FOCUS_DELAY_MS = 300;
+  const OPEN_FOCUS_DELAY_MS = 300;
   const COPY_FEEDBACK_MS = 2000;
   const FOCUSABLE_SELECTOR =
     'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -368,9 +368,12 @@ if (seasonEl) {
     promo.setAttribute('aria-hidden', 'false');
     setBodyScrollLocked(true);
 
-    // Focus the email field for quick typing
-    const emailField = document.getElementById('promoEmail');
-    if (emailField) setTimeout(() => emailField.focus(), EMAIL_FOCUS_DELAY_MS);
+    // Focus the close button, not the email field. The popup auto-opens
+    // (30s timer / 60% scroll / exit intent), so SR + keyboard users may
+    // be mid-task; landing on close lets them dismiss in one keystroke
+    // instead of being yanked into a form field they didn't ask for.
+    const closeBtn = promo.querySelector('.promo-close');
+    if (closeBtn) setTimeout(() => closeBtn.focus(), OPEN_FOCUS_DELAY_MS);
 
     teardownTriggers();
   };
