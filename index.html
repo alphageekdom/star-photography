@@ -565,25 +565,27 @@
             </label>
           </p>
 
+          <p class="contact-form-hint" aria-hidden="true">* required</p>
+
           <div class="form-row">
             <div class="form-field">
-              <label for="cf-name" class="sr-only">Name</label>
+              <label for="cf-name" class="sr-only">Name (required)</label>
               <input
                 id="cf-name"
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Name *"
                 required
                 autocomplete="name"
               />
             </div>
             <div class="form-field">
-              <label for="cf-email" class="sr-only">Email</label>
+              <label for="cf-email" class="sr-only">Email (required)</label>
               <input
                 id="cf-email"
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Email *"
                 required
                 autocomplete="email"
               />
@@ -601,11 +603,11 @@
           </div>
 
           <div class="form-field">
-            <label for="cf-message" class="sr-only">Message</label>
+            <label for="cf-message" class="sr-only">Message (required)</label>
             <textarea
               id="cf-message"
               name="message"
-              placeholder="Tell me about your vision..."
+              placeholder="Tell me about your vision... *"
               required
             ></textarea>
           </div>

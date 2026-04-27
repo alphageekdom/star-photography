@@ -76,7 +76,7 @@ body {
   display: inline-block;
   padding: 0.9rem 2.5rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -127,7 +127,7 @@ body {
 .section-tag {
   margin-bottom: 1rem;
   color: var(--terracotta);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -301,7 +301,7 @@ body {
 .sub-text {
   margin: 0;
   color: rgba(var(--cream-rgb), 0.65);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -554,7 +554,7 @@ body {
 .hero-eyebrow {
   margin-bottom: 1.5rem;
   color: var(--gold-light);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -614,7 +614,7 @@ body {
 
 .scroll-indicator span:first-child {
   color: rgba(var(--cream-rgb), 0.8);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   transition: color 0.3s ease;
@@ -848,7 +848,7 @@ body {
 /* Tighter button inside the card */
 .service-card .btn {
   padding: 0.7rem 1.8rem;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 @media (max-width: 1024px) {
@@ -1005,7 +1005,7 @@ body {
     display: inline-block;
     font-family: var(--font-body);
     font-style: normal;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -1209,7 +1209,7 @@ body {
 
 .review-author-info span {
   color: var(--charcoal-light);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
 }
 
@@ -1263,7 +1263,7 @@ body {
 .contact-info-item h3 {
   margin-bottom: 0.5rem;
   color: var(--gold);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -1301,6 +1301,15 @@ body {
 .contact-form-hp {
   position: absolute;
   left: -9999px;
+}
+
+/* Sighted-only required-field key. SR users get "required" via the
+   required attribute, so this is aria-hidden. */
+.contact-form-hint {
+  margin: 0 0 -0.4rem;
+  color: rgba(var(--cream-rgb), 0.65);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 .form-row {
@@ -1434,7 +1443,7 @@ body {
 .footer-links-col h2 {
   margin-bottom: 1rem;
   color: var(--gold);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1641,7 +1650,7 @@ body {
 .promo-eyebrow {
   margin-bottom: 0.75rem;
   color: var(--terracotta);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -1727,7 +1736,7 @@ body {
 .promo-fine {
   margin-top: 1rem;
   color: rgba(var(--charcoal-rgb), 0.7);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.02em;
 }
 
@@ -1787,7 +1796,7 @@ body {
   border: none;
   color: var(--cream);
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
