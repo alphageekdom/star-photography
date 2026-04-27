@@ -468,6 +468,26 @@ body {
   display: flex;
 }
 
+.mobile-menu-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-close:hover,
+.mobile-menu-close:focus-visible {
+  color: var(--gold);
+}
+
 .mobile-menu a {
   font-family: var(--font-display);
   font-size: 2rem;

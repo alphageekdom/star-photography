@@ -70,9 +70,9 @@ const toggleMobileMenu = (forceOpen) => {
 
   if (isOpen) {
     mobileMenuLastFocused = document.activeElement;
-    // Focus the first link so keyboard users land inside the menu
-    const firstLink = mobileMenu.querySelector('a');
-    if (firstLink) setTimeout(() => firstLink.focus(), MENU_FOCUS_DELAY_MS);
+    // Land on the close button so SR users immediately hear how to exit
+    const closeBtn = mobileMenu.querySelector('.mobile-menu-close');
+    if (closeBtn) setTimeout(() => closeBtn.focus(), MENU_FOCUS_DELAY_MS);
   } else if (mobileMenuLastFocused) {
     mobileMenuLastFocused.focus();
   }
@@ -80,11 +80,16 @@ const toggleMobileMenu = (forceOpen) => {
 
 const trapMobileMenuFocus = (event) => {
   if (!mobileMenu?.classList.contains('active')) return;
-  trapTabFocus(event, mobileMenu.querySelectorAll('a'));
+  trapTabFocus(event, mobileMenu.querySelectorAll('a, button'));
 };
 
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => toggleMobileMenu());
+
+  const mobileMenuCloseBtn = mobileMenu.querySelector('.mobile-menu-close');
+  if (mobileMenuCloseBtn) {
+    mobileMenuCloseBtn.addEventListener('click', () => toggleMobileMenu(false));
+  }
 
   // Close mobile menu when any link is tapped
   mobileMenu.querySelectorAll('a').forEach((link) => {

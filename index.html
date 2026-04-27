@@ -114,6 +114,14 @@
       aria-label="Site navigation"
       aria-hidden="true"
     >
+      <button
+        type="button"
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Close menu"
+      >
+        &times;
+      </button>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#gallery">Portfolio</a>
@@ -121,7 +129,7 @@
       <a href="#contact">Contact</a>
     </div>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
     <!-- Hero -->
     <section class="hero">
       <img
@@ -535,7 +543,10 @@
         >
           <input type="hidden" name="form-name" value="contact" />
           <p class="contact-form-hp" aria-hidden="true">
-            <label>Don't fill this out: <input name="bot-field" /></label>
+            <label
+              >Don't fill this out:
+              <input name="bot-field" tabindex="-1" autocomplete="off" />
+            </label>
           </p>
 
           <div class="form-row">
