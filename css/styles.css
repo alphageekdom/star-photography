@@ -1431,7 +1431,7 @@ body {
   gap: 4rem;
 }
 
-.footer-links-col h4 {
+.footer-links-col h2 {
   margin-bottom: 1rem;
   color: var(--gold);
   font-size: 0.65rem;
