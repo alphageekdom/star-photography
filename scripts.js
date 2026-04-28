@@ -335,7 +335,7 @@ if (seasonEl) {
     'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
   // ─ Storage helpers (no-op if localStorage is unavailable) ──────────
-  const getState = () => {
+  const loadStoredState = () => {
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
     } catch {
@@ -343,9 +343,9 @@ if (seasonEl) {
     }
   };
 
-  const setState = (patch) => {
+  const saveStoredState = (patch) => {
     try {
-      const next = { ...getState(), ...patch, updated: Date.now() };
+      const next = { ...loadStoredState(), ...patch, updated: Date.now() };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     } catch {
       /* storage blocked — popup still works per-session */
@@ -353,7 +353,7 @@ if (seasonEl) {
   };
 
   const shouldSuppress = () => {
-    const { dismissedAt, convertedAt } = getState();
+    const { dismissedAt, convertedAt } = loadStoredState();
     const windowMs = DISMISS_WINDOW_DAYS * DAY_MS;
     const now = Date.now();
     if (convertedAt && now - convertedAt < windowMs) return true;
@@ -362,7 +362,7 @@ if (seasonEl) {
   };
 
   // ─ Open / close ────────────────────────────────────────
-  let shown = false;
+  let hasOpened = false;
   let lastFocused = null;
 
   const getPromoFocusables = () =>
@@ -371,8 +371,8 @@ if (seasonEl) {
     );
 
   const openPromo = () => {
-    if (shown || shouldSuppress()) return;
-    shown = true;
+    if (hasOpened || shouldSuppress()) return;
+    hasOpened = true;
     lastFocused = document.activeElement;
     promo.classList.add('is-open');
     promo.setAttribute('aria-hidden', 'false');
@@ -392,7 +392,7 @@ if (seasonEl) {
     promo.classList.remove('is-open');
     promo.setAttribute('aria-hidden', 'true');
     setBodyScrollLocked(false);
-    if (reason === 'dismissed') setState({ dismissedAt: Date.now() });
+    if (reason === 'dismissed') saveStoredState({ dismissedAt: Date.now() });
     if (lastFocused) lastFocused.focus();
   };
 
@@ -414,7 +414,7 @@ if (seasonEl) {
   // ─ Triggers: first of { 30s timer, 60% scroll, exit intent } ─────
   let triggerTimer = null;
 
-  const onScroll = () => {
+  const evalScrollTrigger = () => {
     const doc = document.documentElement;
     const scrolledPct = (window.scrollY + window.innerHeight) / doc.scrollHeight;
     if (scrolledPct >= SCROLL_TRIGGER_PCT) openPromo();
@@ -428,13 +428,13 @@ if (seasonEl) {
   const setupTriggers = () => {
     if (shouldSuppress()) return;
     triggerTimer = setTimeout(openPromo, TIME_TRIGGER_MS);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', evalScrollTrigger, { passive: true });
     document.addEventListener('mouseout', onExitIntent);
   };
 
   const teardownTriggers = () => {
     clearTimeout(triggerTimer);
-    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('scroll', evalScrollTrigger);
     document.removeEventListener('mouseout', onExitIntent);
   };
 
@@ -524,7 +524,7 @@ if (seasonEl) {
       /* ignore — still show the code */
     }
 
-    setState({ convertedAt: Date.now(), email });
+    saveStoredState({ convertedAt: Date.now(), email });
     showSuccess(code);
   });
 
