@@ -65,6 +65,7 @@ const toggleMobileMenu = (forceOpen) => {
   hamburger.classList.toggle('active', isOpen);
   mobileMenu.classList.toggle('active', isOpen);
   hamburger.setAttribute('aria-expanded', isOpen);
+  hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   mobileMenu.setAttribute('aria-hidden', !isOpen);
   setBodyScrollLocked(isOpen);
 
