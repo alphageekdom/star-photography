@@ -1739,6 +1739,17 @@ body {
   font-size: 0.8rem;
 }
 
+.promo-status {
+  min-height: 1rem;
+  margin: 0;
+  color: rgba(var(--charcoal-rgb), 0.7);
+  font-size: 0.8rem;
+}
+
+.promo-status:empty {
+  min-height: 0;
+}
+
 .promo-fine {
   margin-top: 1rem;
   color: rgba(var(--charcoal-rgb), 0.7);

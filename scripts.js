@@ -253,7 +253,7 @@ if (contactForm) {
 
     submitBtn.disabled = true;
     submitLabel.textContent = 'Sending…';
-    setStatus('', null);
+    setStatus('Sending your message…', null);
 
     try {
       const body = new URLSearchParams(new FormData(contactForm)).toString();
@@ -436,6 +436,7 @@ if (seasonEl) {
   // ─ Form submission ─────────────────────────────────────
   const promoForm = document.getElementById('promoForm');
   const errorEl = document.getElementById('promoError');
+  const statusEl = document.getElementById('promoStatus');
   const submitBtn = promoForm.querySelector('.promo-submit');
   const submitLabel = submitBtn.querySelector('.promo-submit-label');
   const emailEl = document.getElementById('promoEmail');
@@ -484,6 +485,7 @@ if (seasonEl) {
 
     submitBtn.disabled = true;
     submitLabel.textContent = 'Sending…';
+    statusEl.textContent = 'Sending your code…';
 
     const code = generateCode();
 
