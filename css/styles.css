@@ -23,6 +23,11 @@
   /* Accents — terracotta, rose, gold, sage */
   --terracotta: #c17b5a;
   --terracotta-dark: #a8664a;
+  /* Terracotta deepened for small uppercase labels on cream/warm-white;
+     base --terracotta is ~3.15:1 there, below the WCAG AA 4.5:1 floor for
+     small text. This shifts the tag/eyebrow color into AA-passing range
+     (~6:1) without leaving the brand palette. */
+  --tag-on-light: #8a4a32;
   --rose: #d4a098;
   --rose-light: #e8cdc8;
   --gold: #c9a96e;
@@ -134,7 +139,7 @@ body {
 
 .section-tag {
   margin-bottom: 1rem;
-  color: var(--terracotta);
+  color: var(--tag-on-light);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.35em;
@@ -1658,7 +1663,7 @@ body {
 
 .promo-eyebrow {
   margin-bottom: 0.75rem;
-  color: var(--terracotta);
+  color: var(--tag-on-light);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.35em;
