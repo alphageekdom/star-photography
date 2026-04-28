@@ -157,10 +157,19 @@ if (galleryItems.length && lightbox) {
     currentIndex = (index + galleryItems.length) % galleryItems.length;
     const item = galleryItems[currentIndex];
     const img = item.querySelector('img');
+    const caption = item.dataset.caption || '';
 
     lightboxImg.src = img.currentSrc || img.src;
     lightboxImg.alt = img.alt || '';
-    lightboxCaption.textContent = item.dataset.caption || '';
+    lightboxCaption.textContent = caption;
+
+    // Keep the dialog's accessible name in sync so SR users hear the
+    // image identity when the dialog opens (the caption live region
+    // handles subsequent prev/next changes).
+    lightbox.setAttribute(
+      'aria-label',
+      caption ? `Image viewer: ${caption}` : 'Image viewer'
+    );
   };
 
   const openLightbox = (index) => {
