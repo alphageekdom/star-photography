@@ -11,21 +11,21 @@ A single-page marketing site for an Orange County–based portrait and wedding p
 Home page — responsive across breakpoints:
 
 <p align="center">
-  <img src="docs/screenshots/desktop-hero.jpeg" alt="Home page on desktop" width="640">
+  <img src="screenshots/desktop-hero.jpeg" alt="Home page on desktop" width="640">
   &nbsp;&nbsp;
-  <img src="docs/screenshots/mobile-hero.jpeg" alt="Home page on mobile" width="180">
+  <img src="screenshots/mobile-hero.jpeg" alt="Home page on mobile" width="180">
 </p>
 
 Portfolio gallery — masonry-style grid with dense flow:
 
 <p align="center">
-  <img src="docs/screenshots/desktop-gallery.jpeg" alt="Portfolio gallery" width="820">
+  <img src="screenshots/desktop-gallery.jpeg" alt="Portfolio gallery" width="820">
 </p>
 
 Accessible lightbox — keyboard navigation, focus trap, Escape to close:
 
 <p align="center">
-  <img src="docs/screenshots/desktop-lightbox.jpeg" alt="Lightbox viewer" width="820">
+  <img src="screenshots/desktop-lightbox.jpeg" alt="Lightbox viewer" width="820">
 </p>
 
 ## Sections
@@ -55,17 +55,18 @@ A few decisions worth calling out:
 - **Vanilla JS, scoped by section.** Each interaction (reveal, lightbox, mobile menu, promo popup, contact form) is its own block with graceful fallbacks — `IntersectionObserver` capability check, `localStorage` try/catch, focus-trap guards.
 - **Cloudinary for images.** `f_auto,q_auto` picks the best format (AVIF/WebP/JPG) per client, and `srcset` + `fetchpriority="high"` on the hero delivers the LCP image as a ~100 KB AVIF instead of a multi-MB JPG.
 - **Netlify forms for submissions.** Contact and promo email capture land in the Netlify dashboard with zero backend code. Hidden form stubs register the schemas at build time.
-- **Accessibility baked in.** Skip link, `:focus-visible` styling, focus trap in every modal, `aria-modal` / `aria-labelledby` / `aria-describedby`, `prefers-reduced-motion` respected across animations, reveal observer falls back to instant-show.
+- **Accessibility baked in.** Semantic landmarks (`<header>`, `<nav>`, `<main>`, named `<section>`s, `<footer>`), skip link to `<main>`, per-context `:focus-visible` rings tuned for WCAG 1.4.11 contrast, focus traps with restore on close in every modal, `aria-modal` / `aria-labelledby` / `aria-describedby`, polite `aria-live` regions for form status and lightbox caption changes, descriptive `aria-label`s on icon-only and otherwise-ambiguous links, `prefers-reduced-motion` respected across animations, reveal observer falls back to instant-show.
 
 ## Performance
 
-Lighthouse (desktop) against production:
+Lighthouse (desktop), measured locally after the round-4 a11y pass:
 
 | Performance | Accessibility | Best Practices | SEO |
 | :---------: | :-----------: | :------------: | :-: |
-|     92      |      91       |       96       | 100 |
+|     100     |      100      |      100       | 100 |
 
-_Re-run:_ `npx lighthouse https://star-photography.netlify.app --preset=desktop --view`
+_Production will refresh on next deploy. Re-run against production:_
+`npx lighthouse https://star-photography.netlify.app --preset=desktop --view`
 
 Key optimizations:
 
@@ -92,8 +93,7 @@ Key optimizations:
 ├── favicon.svg       # inline gold-star favicon
 ├── css/
 │   └── styles.css    # all styles
-└── docs/
-    └── screenshots/  # README images
+└── screenshots/      # README images
 ```
 
 ## Local development
