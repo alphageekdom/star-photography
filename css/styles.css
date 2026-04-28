@@ -1285,7 +1285,8 @@ body {
   text-decoration: underline;
   text-decoration-color: rgba(var(--cream-rgb), 0.35);
   text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 5px;
   transition:
     color 0.3s ease,
     text-decoration-color 0.3s ease;
