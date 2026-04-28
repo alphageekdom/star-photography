@@ -70,8 +70,10 @@ body {
 }
 
 /* Hash-anchor jump offset — without this, fragment navigation parks the
-   target's top edge underneath the fixed navbar (var(--nav-height)). */
-:target {
+   target's top edge underneath the fixed navbar (var(--nav-height)).
+   #main is excluded: the skip link only needs to move focus there, not
+   scroll an 88px gap above an already top-anchored element. */
+:target:not(#main) {
   scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
