@@ -76,8 +76,8 @@
     <div id="preloader" role="status" aria-live="polite">
       <div class="preloader-bg" aria-hidden="true"></div>
       <div class="preloader-content">
-        <p class="loading-text">Capturing the perfect moment...</p>
-        <p class="sub-text">Your visual story is loading</p>
+        <p class="preloader-title">Capturing the perfect moment...</p>
+        <p class="preloader-subtitle">Your visual story is loading</p>
         <div class="preloader-indicator" aria-hidden="true"></div>
       </div>
     </div>
@@ -607,7 +607,7 @@
           data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <p class="contact-form-hp" aria-hidden="true">
+          <p class="contact-form-honeypot" aria-hidden="true">
             <label
               >Don't fill this out:
               <input name="bot-field" tabindex="-1" autocomplete="off" />
@@ -618,9 +618,9 @@
 
           <div class="form-row">
             <div class="form-field">
-              <label for="cf-name" class="sr-only">Name (required)</label>
+              <label for="contact-name" class="sr-only">Name (required)</label>
               <input
-                id="cf-name"
+                id="contact-name"
                 type="text"
                 name="name"
                 placeholder="Name *"
@@ -629,9 +629,9 @@
               />
             </div>
             <div class="form-field">
-              <label for="cf-email" class="sr-only">Email (required)</label>
+              <label for="contact-email" class="sr-only">Email (required)</label>
               <input
-                id="cf-email"
+                id="contact-email"
                 type="email"
                 name="email"
                 placeholder="Email *"
@@ -642,9 +642,9 @@
           </div>
 
           <div class="form-field">
-            <label for="cf-subject" class="sr-only">Subject</label>
+            <label for="contact-subject" class="sr-only">Subject</label>
             <input
-              id="cf-subject"
+              id="contact-subject"
               type="text"
               name="subject"
               placeholder="Subject"
@@ -652,9 +652,9 @@
           </div>
 
           <div class="form-field">
-            <label for="cf-message" class="sr-only">Message (required)</label>
+            <label for="contact-message" class="sr-only">Message (required)</label>
             <textarea
-              id="cf-message"
+              id="contact-message"
               name="message"
               placeholder="Tell me about your vision... *"
               required
@@ -946,7 +946,7 @@
                 name="email"
                 placeholder="your@email.com"
                 autocomplete="email"
-                aria-describedby="promoFine"
+                aria-describedby="promoDisclaimer"
                 required
               />
               <button type="submit" class="btn btn-filled promo-submit">
@@ -962,7 +962,7 @@
               <p class="promo-error" id="promoError" role="alert"></p>
             </form>
 
-            <p class="promo-fine" id="promoFine">
+            <p class="promo-disclaimer" id="promoDisclaimer">
               No spam — unsubscribe any time. Valid on bookings of $500+.
             </p>
           </div>

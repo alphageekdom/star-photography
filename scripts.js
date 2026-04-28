@@ -239,7 +239,7 @@ if (contactForm) {
   const statusEl = document.getElementById('contactFormStatus');
   const submitBtn = contactForm.querySelector('.contact-form-submit');
   const submitLabel = submitBtn.querySelector('.contact-form-submit-label');
-  const emailField = document.getElementById('cf-email');
+  const emailField = document.getElementById('contact-email');
 
   const setStatus = (message, type) => {
     statusEl.textContent = message;
