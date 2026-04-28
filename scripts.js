@@ -470,10 +470,17 @@ if (seasonEl) {
     offerStateEl.hidden = true;
     successStateEl.hidden = false;
 
+    // Re-point the dialog's accessible name at the success heading.
+    // The original aria-labelledby="promoTitle" / aria-describedby="promoDesc"
+    // referenced elements that just became hidden — SR behavior on hidden
+    // referents is implementation-defined.
+    promo.setAttribute('aria-labelledby', 'promoSuccessTitle');
+    promo.removeAttribute('aria-describedby');
+
     // Move focus into the new state. The user's last focus was the submit
     // button, which we just hid — without this, focus drops to <body> and
     // SR users get no signal that submission succeeded.
-    const successHeading = successStateEl.querySelector('.promo-title');
+    const successHeading = document.getElementById('promoSuccessTitle');
     if (successHeading) {
       successHeading.setAttribute('tabindex', '-1');
       successHeading.focus({ preventScroll: true });
