@@ -458,6 +458,15 @@ if (seasonEl) {
     codeTextEl.textContent = code;
     offerStateEl.hidden = true;
     successStateEl.hidden = false;
+
+    // Move focus into the new state. The user's last focus was the submit
+    // button, which we just hid — without this, focus drops to <body> and
+    // SR users get no signal that submission succeeded.
+    const successHeading = successStateEl.querySelector('.promo-title');
+    if (successHeading) {
+      successHeading.setAttribute('tabindex', '-1');
+      successHeading.focus({ preventScroll: true });
+    }
   };
 
   promoForm.addEventListener('submit', async (event) => {
